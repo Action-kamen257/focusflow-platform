@@ -28,7 +28,8 @@
 </a>
 
 <p align="center">
-  <i>📹 Animated Screen Recording: End-to-end platform tour navigating Landing Page, Auth Modal, Dashboard, Newsfeed, Courses, Meditation, and Rewards Marketplace.</i>
+  <i>📹 <b>Fluid 30 FPS Walkthrough</b>: Continuous smooth-ease tour navigating Landing Page, Auth Modal, Dashboard, Newsfeed, Courses, Meditation, Rewards Marketplace, and FocusFlow AI.</i><br/>
+  <a href="images/focusflow_walkthrough.mp4">▶️ <b>Watch Full HD 30 FPS Video (MP4)</b></a> • <a href="https://focus-flow-d8b48.web.app" target="_blank">🌐 <b>Launch Live Interactive App</b></a>
 </p>
 
 </div>
@@ -155,7 +156,8 @@ focusflow-platform/
 │   ├── dashboard.css          # Dark-mode dashboard UI design system
 │   └── style.css              # Landing page aesthetics, typography & animations
 ├── images/                    # Platform screen recording walkthrough & assets
-│   ├── focusflow_walkthrough.gif # Animated end-to-end screen recording walkthrough
+│   ├── focusflow_walkthrough.mp4 # Full HD 30 FPS video walkthrough (H.264)
+│   ├── focusflow_walkthrough.gif # Animated smooth screen recording walkthrough
 │   └── logo.png
 ├── js/
 │   ├── config.js              # Resilient client API engine & environment router
