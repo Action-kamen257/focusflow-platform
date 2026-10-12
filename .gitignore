@@ -1,4 +1,43 @@
+# Dependencies
 node_modules/
+package-lock.json.bak
+
+# Environment Variables & Secrets (CRITICAL)
 .env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+*.cert
+*.crt
+
+# Local Databases & Persistent State
 *.db
+*.sqlite
+*.sqlite3
+server/data/focusflow.db
+functions/server/data/focusflow.db
+
+# Firebase & Deployment Caches
 .firebase/
+firebase-debug.log
+firebase-debug.*.log
+firestore-debug.log
+ui-debug.log
+
+# System & OS Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# IDE & Editor Files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
