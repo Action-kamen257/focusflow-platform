@@ -22,46 +22,14 @@
 
 <br/>
 
+<!-- SCREEN RECORDING / WALKTHROUGH OF THE ENTIRE PROJECT -->
 <a href="https://focus-flow-d8b48.web.app" target="_blank">
-  <img width="880" alt="FocusFlow Platform Hero Interface" src="images/hero_focus.png" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);" />
+  <img width="880" alt="FocusFlow Live Platform Walkthrough & Screen Recording" src="images/focusflow_walkthrough.gif" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);" />
 </a>
 
-</div>
-
----
-
-## 📽️ Interactive Demo & Platform Showcase
-
-<div align="center">
-
-### **Live Screen Recording & User Journey Demonstration**
-
-> 🎥 **Walkthrough Video Preview**: *From Onboarding to Deep Work, News Reading, Course Graduation, and Reward Redemption.*
-
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        FOCUSFLOW USER JOURNEY                          │
-│                                                                        │
-│   [ 1. Sign Up ]  ───►  [ 2. Claim +50 🪙 ] ───► [ 3. Dashboard ]     │
-│   Instant Account        Welcome Bonus            Unified Metrics      │
-│         │                                                │             │
-│         ▼                                                ▼             │
-│   [ 4. Learn ]    ───►  [ 5. Mindfulness ]  ───► [ 6. Marketplace ]    │
-│   Modules (+25🪙)       Meditation (+30🪙)       Redeem Gift Cards     │
-└────────────────────────────────────────────────────────────────────────┘
-```
-
-| 1. Landing & Attention Economy | 2. Procrastination vs. Focus Anchor |
-|:---:|:---:|
-| <img src="images/solution.png" width="400" alt="Solution Overview"/> | <img src="images/hero_procrastination.png" width="400" alt="Dopamine Trap Solved"/> |
-
-| 3. Structured Courses & Upskilling | 4. Mindfulness & Meditation |
-|:---:|:---:|
-| <img src="images/subject_courses.png" width="400" alt="Courses Catalog"/> | <img src="images/subject_meditation.png" width="400" alt="Meditation Hub"/> |
-
-| 5. Daily Verified News Hub | 6. Digital Gift Card & Perks Marketplace |
-|:---:|:---:|
-| <img src="images/subject_news.png" width="400" alt="Curated News Reader"/> | <img src="images/subject_rewards.png" width="400" alt="Reward Redemption"/> |
+<p align="center">
+  <i>📹 Animated Screen Recording: End-to-end platform tour navigating Landing Page, Auth Modal, Dashboard, Newsfeed, Courses, Meditation, and Rewards Marketplace.</i>
+</p>
 
 </div>
 
@@ -78,13 +46,53 @@ By transforming deep work, daily micro-learning, and mindfulness into measurable
 The full web platform is deployed and served globally via **Firebase Hosting**:
 - 🌐 **Primary Live URL**: [https://focus-flow-d8b48.web.app](https://focus-flow-d8b48.web.app)
 - 🌐 **Secondary Domain**: [https://focus-flow-d8b48.firebaseapp.com](https://focus-flow-d8b48.firebaseapp.com)
-- 📊 **Live Dashboard**: [https://focus-flow-d8b48.web.app/dashboard.html](https://focus-flow-d8b48.web.app/dashboard.html)
-- 🎁 **Redemption Marketplace**: [https://focus-flow-d8b48.web.app/redeem.html](https://focus-flow-d8b48.web.app/redeem.html)
-- 🧠 **FocusFlow AI Intelligence Hub**: [https://focus-flow-d8b48.web.app/focusflow.html](https://focus-flow-d8b48.web.app/focusflow.html)
+- 📊 **Live Dashboard**: [https://focus-flow-d8b48.web.app/dashboard.html](https://focus-flow-d8b48.web.app/dashboard.html) — Unified real-time dashboard displaying streak counts, coin telemetry, and multi-category habit trackers.
+- 🎁 **Redemption Marketplace**: [https://focus-flow-d8b48.web.app/redeem.html](https://focus-flow-d8b48.web.app/redeem.html) — Redeem hard-earned coins for ChatGPT Plus, Coursera, Amazon, and Starbucks vouchers.
+- 🧠 **FocusFlow AI Intelligence Hub**: [https://focus-flow-d8b48.web.app/focusflow.html](https://focus-flow-d8b48.web.app/focusflow.html) — Attention intelligence dashboard with adaptive focus sessions and distraction-filtering insights.
 
 ---
 
-## 2. 🪙 The FocusFlow Coin Economy
+## 2. ⚡ Core Platform Modules & Navigation
+
+The platform is architected into 8 interconnected, responsive modules captured in the live screen recording above:
+
+### 1. 🚀 Landing Experience & The Attention Arbitrage Model (`index.html`)
+- **Hero & Dynamic Value Proposition**: Interactive hook contrasting dopamine-depleting distraction apps against FocusFlow's value-returning economic model.
+- **Problem vs. Solution Matrix**: Analyzes the attention economy imbalance and demonstrates how structured micro-rewards reverse cognitive burnout.
+- **Rewards Tier Showcase**: Live interactive preview of digital perk vouchers (ChatGPT Plus, Coursera, Amazon, Spotify) motivating immediate user onboarding.
+
+### 2. 🔐 Frictionless Authentication & Instant Gratification (`#auth-modal`)
+- **Zero-Friction Signup**: Clean glassmorphism modal with instant validation and single-click guest or user creation.
+- **Instant Welcome Capital**: Automatically credits **+50 Focus Coins** upon account creation, establishing immediate psychological ownership and engagement.
+
+### 3. 📊 Unified Real-Time User Dashboard (`dashboard.html`)
+- **Daily Streak Engine**: Tracks consecutive active days with milestone celebrations (`🔥 7-Day Streak`).
+- **Telemetry Counter**: Live balance header displaying current spendable coin balance, total earned coins, and user badge level.
+- **Progressive Activity Audit Log**: Immutable log of all reading, course completions, meditations, and voucher transactions with timestamps.
+
+### 4. 📰 Curated Newsfeed Reader (`dashboard.html#news`)
+- **Bite-Sized Verified Knowledge**: Curated 30-second insights spanning Deep Tech, Machine Learning, Economic Policy, and Cognitive Science.
+- **Micro-Reward Incentive**: Readers earn **+5 Coins per verified read**, transforming idle scroll time into productive learning habits.
+
+### 5. 📚 Guided Courses & Modular Upskilling (`dashboard.html#courses`)
+- **Structured Learning Paths**: Curriculum tracks in Python, Practical Machine Learning, and Mindful Deep Work.
+- **Milestone Rewards**: **+25 Coins** per completed module and a **+100 Coin bonus** on full curriculum completion.
+
+### 6. 🧘 Guided Mindfulness & Reset Player (`dashboard.html#meditation`)
+- **Cognitive Clarity Breaks**: 5-minute guided audio/video mindfulness resets with audio visualization.
+- **Wellness Reward**: Earns **+30 Coins** per completed session, encouraging balance between intense focus and mental recovery.
+
+### 7. 🎁 Real-World Digital Perks Marketplace (`redeem.html`)
+- **Multi-Category Catalog**: Curated high-utility digital perks across AI Subscriptions (ChatGPT Plus), Professional EdTech (Coursera Plus), E-Commerce (Amazon Gift Cards), and Lifestyle (Starbucks, Spotify).
+- **Instant Fulfillment Generation**: Transparent balance deduction generating unique, tamper-evident redemption voucher codes with copy-to-clipboard functionality.
+
+### 8. 🧠 FocusFlow AI Attention Intelligence Suite (`focusflow.html`)
+- **Adaptive Focus Sessions**: Integrated 25-minute Pomodoro timer with ambient sound generators and visual focus pulses.
+- **Distraction Telemetry**: Tracks session completion rates and provides personalized mindfulness nudges.
+
+---
+
+## 3. 🪙 The FocusFlow Coin Economy
 
 Every action on FocusFlow is calibrated to reinforce positive digital hygiene:
 
@@ -97,31 +105,6 @@ Every action on FocusFlow is calibrated to reinforce positive digital hygiene:
 | **Course Graduation** | `+100 🪙` | Bonus awarded upon finishing all modules of an enrolled course. |
 | **Guided Meditation** | `+30 🪙` | Complete guided breathing and mindfulness audio/video sessions. |
 | **Marketplace Redemption** | `-300 to -4000 🪙` | Burn coins for ChatGPT Plus, Coursera, Amazon, Starbucks, etc. |
-
----
-
-## 3. 🎯 Key Feature Modules
-
-### 1. Unified Real-Time Dashboard
-- **Streak & Coin Telemetry**: Live trackers displaying current streaks, coin balances, and time-aware greetings.
-- **Activity Feed**: Comprehensive chronological audit trail of all earned and spent coins with icon-coded badges.
-
-### 2. Verified Newsfeed Reader
-- 15+ curated, bite-sized articles across Technology, Science, Finance, Law, Sports, and Infrastructure.
-- Visual read/unread tags with automated single-reward claim limits.
-
-### 3. Guided Micro-Courses
-- Curated curricula from top institutions (University of Michigan, Stanford, Yale).
-- Dynamic progress bars, module-by-module checkpoint verification, and graduation coin bonuses.
-
-### 4. Mindfulness & Guided Meditation
-- Integrated YouTube embed player for morning clarity, midday resets, and end-of-week stress release.
-- Monthly completion tracking and mental health wellness tracking.
-
-### 5. Redemption Marketplace
-- Automated coin eligibility checks and balance verification.
-- Instant fulfillment generating unique redemption voucher codes (e.g. `FF-8X9A-Q2LM`).
-- Dedicated redemption history ledger.
 
 ---
 
@@ -171,15 +154,9 @@ focusflow-platform/
 ├── css/
 │   ├── dashboard.css          # Dark-mode dashboard UI design system
 │   └── style.css              # Landing page aesthetics, typography & animations
-├── images/                    # Platform graphics, media assets & badges
-│   ├── hero_focus.png
-│   ├── hero_procrastination.png
-│   ├── logo.png
-│   ├── solution.png
-│   ├── subject_courses.png
-│   ├── subject_meditation.png
-│   ├── subject_news.png
-│   └── subject_rewards.png
+├── images/                    # Platform screen recording walkthrough & assets
+│   ├── focusflow_walkthrough.gif # Animated end-to-end screen recording walkthrough
+│   └── logo.png
 ├── js/
 │   ├── config.js              # Resilient client API engine & environment router
 │   ├── dashboard.js           # Dashboard tab state, metrics & interaction logic

@@ -41,3 +41,8 @@ desktop.ini
 .idea/
 *.sublime-project
 *.sublime-workspace
+
+# Temporary recording work dirs
+videos/
+frames/
+
