@@ -1,0 +1,124 @@
+[
+  {
+    "id": "demo-user-001",
+    "name": "Demo User",
+    "email": "demo@focusflow.in",
+    "password": "$2a$10$demohashedpasswordforfocusflow",
+    "coins": 750,
+    "streak": 5,
+    "lastActive": "2026-04-17",
+    "enrolledCourses": [
+      "c1",
+      "c3"
+    ],
+    "completedModules": [
+      "c1m1",
+      "c1m2",
+      "c3m1"
+    ],
+    "readNews": [
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "n5"
+    ],
+    "completedMeditations": [
+      "med1"
+    ],
+    "coinHistory": [
+      {
+        "action": "news_read",
+        "coins": 5,
+        "detail": "Read: India's GDP Growth",
+        "date": "2026-04-17T10:00:00Z"
+      },
+      {
+        "action": "news_read",
+        "coins": 5,
+        "detail": "Read: ISRO Gaganyaan",
+        "date": "2026-04-17T10:05:00Z"
+      },
+      {
+        "action": "course_module",
+        "coins": 25,
+        "detail": "Completed: Why We Program",
+        "date": "2026-04-16T14:00:00Z"
+      },
+      {
+        "action": "course_module",
+        "coins": 25,
+        "detail": "Completed: Variables & Expressions",
+        "date": "2026-04-16T15:30:00Z"
+      },
+      {
+        "action": "meditation",
+        "coins": 30,
+        "detail": "Completed: Morning Clarity",
+        "date": "2026-04-15T07:00:00Z"
+      },
+      {
+        "action": "streak_bonus",
+        "coins": 50,
+        "detail": "7-day streak bonus!",
+        "date": "2026-04-14T00:00:00Z"
+      }
+    ],
+    "redemptions": [],
+    "createdAt": "2026-04-10T00:00:00Z"
+  },
+  {
+    "id": "448b315d-4532-47f3-8dfa-f23b267eb562",
+    "name": "Tushar",
+    "email": "tushar@test.com",
+    "password": "$2a$10$VJuF4O8SpJAgamknC20Dteg7AOhguiCA.3DnUOCPVN7xKtzY0xUwq",
+    "coins": 55,
+    "streak": 0,
+    "lastActive": "2026-04-17",
+    "enrolledCourses": [],
+    "completedModules": [],
+    "readNews": [
+      "n1"
+    ],
+    "completedMeditations": [],
+    "coinHistory": [
+      {
+        "action": "news_read",
+        "coins": 5,
+        "detail": "Read: India's GDP Growth Hits 7.2% in Q4, Fastest Among ...",
+        "date": "2026-04-17T20:00:47.632Z"
+      },
+      {
+        "action": "welcome_bonus",
+        "coins": 50,
+        "detail": "Welcome to FocusFlow! 🎉",
+        "date": "2026-04-17T19:59:51.864Z"
+      }
+    ],
+    "redemptions": [],
+    "createdAt": "2026-04-17T19:59:51.864Z"
+  },
+  {
+    "id": "415c268e-d454-44de-ba60-63506ad86f4c",
+    "name": "Tushar",
+    "email": "tusharmali7726@gmail.com",
+    "password": "$2a$10$bM3ONPyFsa5aFAeIPw4wFeMURhSpCdhCem5G8FIFxZzfv4ByqT.ea",
+    "coins": 50,
+    "streak": 1,
+    "lastActive": "2026-04-18",
+    "enrolledCourses": [],
+    "completedModules": [],
+    "readNews": [],
+    "completedMeditations": [],
+    "coinHistory": [
+      {
+        "action": "welcome_bonus",
+        "coins": 50,
+        "detail": "Welcome to FocusFlow! 🎉",
+        "date": "2026-04-17T20:17:10.938Z"
+      }
+    ],
+    "redemptions": [],
+    "createdAt": "2026-04-17T20:17:10.938Z"
+  }
+]

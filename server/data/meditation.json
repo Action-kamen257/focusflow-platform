@@ -1,0 +1,50 @@
+[
+  {
+    "id": "med1",
+    "title": "Morning Clarity — Start Your Day Right",
+    "description": "A calm 10-minute guided meditation to clear mental fog and set positive intentions for the day. Includes breathing exercises and body scan.",
+    "duration": "10 min",
+    "instructor": "Priya Sharma",
+    "category": "Morning",
+    "youtubeId": "inpok4MKVLM",
+    "thumbnail": "https://img.youtube.com/vi/inpok4MKVLM/maxresdefault.jpg",
+    "coinsOnComplete": 30,
+    "weekAvailable": 1
+  },
+  {
+    "id": "med2",
+    "title": "Focus Recharge — Midday Reset",
+    "description": "A quick 7-minute meditation designed for study or work breaks. Reset your focus and reduce stress between intense sessions.",
+    "duration": "7 min",
+    "instructor": "Aarav Patel",
+    "category": "Focus",
+    "youtubeId": "z0GtmPnqAd8",
+    "thumbnail": "https://img.youtube.com/vi/z0GtmPnqAd8/maxresdefault.jpg",
+    "coinsOnComplete": 30,
+    "weekAvailable": 2
+  },
+  {
+    "id": "med3",
+    "title": "Stress Release — End-of-Week Wind Down",
+    "description": "15-minute deep relaxation session combining progressive muscle relaxation with visualization. Perfect for Friday evenings.",
+    "duration": "15 min",
+    "instructor": "Ananya Desai",
+    "category": "Relaxation",
+    "youtubeId": "MIr3RsUWrdo",
+    "thumbnail": "https://img.youtube.com/vi/MIr3RsUWrdo/maxresdefault.jpg",
+    "coinsOnComplete": 30,
+    "weekAvailable": 3
+  },
+  {
+    "id": "med4",
+    "title": "Sleep Well — Guided Night Meditation",
+    "description": "A soothing 12-minute guided meditation with calming narration and nature sounds to help you fall asleep naturally and wake refreshed.",
+    "duration": "12 min",
+    "instructor": "Rohan Kapoor",
+    "category": "Sleep",
+    "youtubeId": "rvaqPPjGLJQ",
+    "thumbnail": "https://img.youtube.com/vi/rvaqPPjGLJQ/maxresdefault.jpg",
+    "coinsOnComplete": 30,
+    "weekAvailable": 4
+  }
+]

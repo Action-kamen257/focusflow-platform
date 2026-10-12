@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Reward AI — Reclaim Your Attention</title>
+<meta name="description" content="Focus Reward AI is an attention intelligence platform that reduces digital overwhelm with adaptive focus sessions, smart notification filtering, and mindful productivity insights.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  /* ============================
+     CSS RESET & ROOT VARIABLES
+  ============================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --bg: #050811;
+    --bg2: #090e1a;
+    --bg3: #0d1525;
+    --surface: #111827;
+    --surface2: #1a2436;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #f0f4ff;
+    --muted: #7a8aaa;
+    --dim: #3d4f6e;
+    --accent: #4f8ef7;
+    --accent2: #7c5af6;
+    --accent3: #00d4a8;
+    --accent4: #f75a8e;
+    --glow: rgba(79,142,247,0.18);
+    --glow2: rgba(124,90,246,0.15);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    /* Spacing scale (4px base) */
+    --s-1: 4px;
+    --s-2: 8px;
+    --s-3: 12px;
+    --s-4: 16px;
+    --s-5: 20px;
+    --s-6: 24px;
+    --s-7: 28px;
+    --s-8: 32px;
+    --s-10: 40px;
+    --s-12: 48px;
+    --s-16: 64px;
+
+    /* UI polish */
+    --ring: 0 0 0 3px rgba(79,142,247,0.22);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============================
+     TYPOGRAPHY
+  ============================ */
+  h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.1; }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; }
+  h3 { font-size: 1.25rem; font-weight: 700; }
+  p { color: var(--muted); line-height: 1.75; }
+  a { color: inherit; }
+
+  /* Accessible skip link */
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 10px;
+    z-index: 1000;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(17,24,39,0.95);
+    border: 1px solid var(--border2);
+  }
+  .skip-link:focus { left: 14px; outline: none; box-shadow: var(--ring); }
+
+  /* Utility: visually hidden (for labels) */
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  /* ============================
+     SHARED UTILITIES
+  ============================ */
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 100px 0; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.25);
+    color: var(--accent); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .tag::before { content:''; width:6px; height:6px; background:var(--accent); border-radius:50%; }
+  .section-head { text-align: center; margin-bottom: 64px; }
+  .section-head p { max-width: 560px; margin: 16px auto 0; font-size: 1.05rem; }
+
+  /* ============================
+     NOISE TEXTURE OVERLAY
+  ============================ */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* ============================
+     NAVIGATION
+  ============================ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 0;
+    background: rgba(5,8,17,0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  nav .inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1160px; margin: 0 auto; padding: 0 24px;
+  }
+  .logo {
+    font-family: var(--font-head); font-weight: 800; font-size: 1.3rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 0.9rem;
+    font-weight: 400; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white !important; padding: 9px 22px; border-radius: 100px;
+    font-weight: 500 !important; font-size: 0.88rem !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+  .hamburger {
+    display:none; flex-direction:column; gap:5px; cursor:pointer;
+    background: transparent; border: 0; padding: 8px; border-radius: 10px;
+  }
+  .hamburger:focus-visible { outline: none; box-shadow: var(--ring); }
+  .hamburger span { width:24px; height:2px; background:var(--text); border-radius:2px; transition:0.3s; }
+
+  /* ============================
+     HERO SECTION
+  ============================ */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+    padding-top: 80px;
+  }
+
+  /* Animated gradient orbs */
+  .orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.35; pointer-events: none;
+  }
+  .orb-1 { width:500px; height:500px; background:var(--accent); top:-100px; left:-150px; animation: float1 12s ease-in-out infinite; }
+  .orb-2 { width:600px; height:600px; background:var(--accent2); top:100px; right:-200px; animation: float2 15s ease-in-out infinite; }
+  .orb-3 { width:300px; height:300px; background:var(--accent3); bottom:0; left:40%; animation: float3 10s ease-in-out infinite; }
+
+  @keyframes float1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(30px,40px) scale(1.05)} }
+  @keyframes float2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-40px,20px) scale(1.08)} }
+  @keyframes float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-30px)} }
+
+  /* Grid lines background */
+  .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 20%, transparent 80%);
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 60px 24px;
+    max-width: 900px; margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(79,142,247,0.08); border: 1px solid rgba(79,142,247,0.2);
+    border-radius: 100px; padding: 8px 18px; margin-bottom: 32px;
+    font-size: 0.82rem; color: var(--accent); font-weight: 500;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge .dot { width:8px; height:8px; background:var(--accent3); border-radius:50%; animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
+
+  .hero-title {
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-title .line1 { display:block; color: var(--text); }
+  .hero-title .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem); color: var(--muted); max-width: 580px;
+    margin: 0 auto 40px; font-weight: 300;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white; border: none; padding: 14px 32px; border-radius: 100px;
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(79,142,247,0.35);
+    display: inline-flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    outline: none;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(79,142,247,0.5); }
+  .btn-primary:focus-visible { box-shadow: var(--ring), 0 0 40px rgba(79,142,247,0.4); }
+  .btn-ghost {
+    background: transparent; color: var(--text); border: 1px solid var(--border2);
+    padding: 14px 32px; border-radius: 100px;
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 400;
+    cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    display: inline-flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    outline: none;
+  }
+  .btn-ghost:hover { border-color: var(--accent); background: rgba(79,142,247,0.06); }
+  .btn-ghost:focus-visible { box-shadow: var(--ring); }
+
+  /* Hero stats bar */
+  .hero-stats {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .hero-stat {
+    flex: 1; max-width: 220px; text-align: center;
+    padding: 28px 20px; border-right: 1px solid var(--border);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat .num {
+    font-family: var(--font-head); font-size: 2rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero-stat .label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ============================
+     EVIDENCE STRIP
+  ============================ */
+  .evidence {
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .evidence .inner {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    padding: 26px 0;
+  }
+  .evidence-item {
+    background: rgba(17,24,39,0.55);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 18px;
+  }
+  .evidence-item .k {
+    font-family: var(--font-head);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .evidence-item .d { margin-top: 6px; font-size: 0.86rem; color: var(--muted); }
+  .evidence-item a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--dim);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.18);
+  }
+  .evidence-item a:hover { color: var(--text); border-bottom-color: rgba(255,255,255,0.35); }
+
+  /* ============================
+     PROBLEM SECTION
+  ============================ */
+  #problem { background: var(--bg2); }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .problem-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+  .problem-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--card-accent, var(--accent)), transparent);
+  }
+  .problem-card .icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(79,142,247,0.1);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+  .problem-card h3 { color: var(--text); margin-bottom: 8px; }
+  .problem-card .stat {
+    display: inline-block; margin-top: 14px;
+    background: rgba(79,142,247,0.08); border: 1px solid rgba(79,142,247,0.15);
+    border-radius: 100px; padding: 4px 12px; font-size: 0.78rem; color: var(--accent);
+  }
+
+  /* ============================
+     WHY OTHERS FAIL (GAP)
+  ============================ */
+  #gap { background: var(--bg); }
+  .gap-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    align-items: stretch;
+  }
+  .gap-main {
+    grid-column: span 7;
+    background: rgba(17,24,39,0.72);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 34px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gap-main::before {
+    content: '';
+    position: absolute; inset: -2px;
+    background:
+      radial-gradient(800px 300px at 15% 25%, rgba(79,142,247,0.12), transparent 60%),
+      radial-gradient(700px 260px at 80% 60%, rgba(124,90,246,0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .gap-main > * { position: relative; }
+  .gap-points { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
+  .gap-points li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); font-size: 0.92rem; }
+  .gap-dot {
+    width: 18px; height: 18px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,212,168,0.12);
+    border: 1px solid rgba(0,212,168,0.18);
+    color: var(--accent3);
+    flex: 0 0 auto;
+    margin-top: 1px;
+    font-size: 0.75rem;
+  }
+  .gap-side { grid-column: span 5; display: grid; gap: 16px; }
+  .gap-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+  }
+  .gap-card h4 { font-family: var(--font-head); font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+  .gap-card p { margin-top: 8px; font-size: 0.92rem; }
+
+  /* ============================
+     SOLUTION / FEATURES
+  ============================ */
+  #solution { background: var(--bg); }
+  .features-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .feature-main {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(79,142,247,0.08), rgba(124,90,246,0.08));
+    border: 1px solid rgba(79,142,247,0.2);
+    border-radius: var(--radius);
+    padding: 48px;
+    display: flex; gap: 40px; align-items: center;
+  }
+  .feature-main-text { flex: 1; }
+  .feature-main-text h3 { font-size: 1.6rem; color: var(--text); margin-bottom: 14px; }
+  .feature-visual {
+    flex: 0 0 280px;
+    background: rgba(0,0,0,0.3); border-radius: 12px;
+    border: 1px solid var(--border2);
+    padding: 20px; min-height: 180px;
+  }
+  .focus-meter { margin-bottom: 20px; }
+  .focus-meter .label { display:flex; justify-content:space-between; margin-bottom:8px; font-size:0.82rem; color:var(--muted); }
+  .meter-track { height: 8px; background: rgba(255,255,255,0.06); border-radius: 100px; overflow: hidden; }
+  .meter-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--accent), var(--accent3)); }
+  .meter-fill.anim { animation: fillAnim 2.5s ease-out forwards; }
+  @keyframes fillAnim { from{width:0%} }
+
+  .feature-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .feature-card:hover { transform: translateY(-4px); border-color: var(--border2); }
+  .feature-card .feat-icon {
+    font-size: 1.6rem; margin-bottom: 14px;
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .feature-card h3 { color: var(--text); margin-bottom: 8px; font-size: 1rem; }
+
+  /* ============================
+     HOW IT WORKS
+  ============================ */
+  #how { background: var(--bg3); }
+  .steps-flow {
+    display: flex; gap: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .steps-flow::before {
+    content: '';
+    position: absolute; top: 48px; left: 60px; right: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+    z-index: 0;
+  }
+  .step {
+    flex: 1; text-align: center; position: relative; z-index: 1; padding: 0 16px;
+  }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: white;
+    margin: 0 auto 20px; box-shadow: 0 0 20px rgba(79,142,247,0.4);
+  }
+  .step h3 { font-size: 0.95rem; color: var(--text); margin-bottom: 8px; }
+  .step p { font-size: 0.85rem; }
+
+  /* ============================
+     WHY INNOVATIVE
+  ============================ */
+  #why { background: var(--bg2); }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .why-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .why-card:hover { transform: translateY(-4px); }
+  .why-icon { font-size: 2rem; margin-bottom: 16px; }
+  .why-card h3 { color: var(--text); font-size: 1rem; margin-bottom: 10px; }
+
+  /* ============================
+     TARGET USERS
+  ============================ */
+  #users { background: var(--bg); }
+  .users-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .user-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px 20px;
+    text-align: center; cursor: default;
+    transition: transform 0.3s, border-color 0.3s, background 0.3s;
+  }
+  .user-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    background: rgba(79,142,247,0.05);
+  }
+  .user-avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin: 0 auto 14px;
+  }
+  .user-card h3 { font-size: 0.95rem; color: var(--text); margin-bottom: 6px; }
+  .user-card p { font-size: 0.82rem; }
+
+  /* ============================
+     FUTURE SCOPE
+  ============================ */
+  #future { background: var(--bg3); }
+  .future-list {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .future-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 20px;
+    transition: border-color 0.3s;
+  }
+  .future-item:hover { border-color: var(--accent3); }
+  .future-bullet {
+    width: 36px; height: 36px; flex-shrink: 0;
+    border-radius: 10px; background: rgba(0,212,168,0.1);
+    border: 1px solid rgba(0,212,168,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+  .future-item h4 { color: var(--text); font-size: 0.95rem; margin-bottom: 4px; }
+  .future-item p { font-size: 0.83rem; }
+
+  /* ============================
+     CTA SECTION
+  ============================ */
+  #cta {
+    background: var(--bg);
+    padding: 120px 24px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-orb {
+    position: absolute; border-radius: 50%; filter: blur(100px);
+    opacity: 0.25; pointer-events: none;
+  }
+  .cta-orb-1 { width: 500px; height: 500px; background: var(--accent); top: -100px; left: 50%; transform: translateX(-60%); }
+  .cta-orb-2 { width: 400px; height: 400px; background: var(--accent2); bottom: -100px; left: 50%; transform: translateX(-30%); }
+  .cta-inner { position: relative; z-index: 1; }
+  .cta-inner h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 18px;
+    background: linear-gradient(135deg, var(--text) 30%, var(--muted));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .cta-inner p { font-size: 1.1rem; margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  /* CTA form */
+  .cta-form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .input {
+    min-width: min(440px, 92vw);
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border2);
+    background: rgba(17,24,39,0.55);
+    color: var(--text);
+    outline: none;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .input::placeholder { color: rgba(122,138,170,0.75); }
+  .input:focus { box-shadow: var(--ring); border-color: rgba(79,142,247,0.55); }
+
+  /* ============================
+     FOOTER
+  ============================ */
+  footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 48px 0;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+  }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-copy { color: var(--dim); font-size: 0.83rem; }
+
+  /* ============================
+     SCROLL ANIMATIONS
+  ============================ */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* ============================
+     GLASSMORPHISM ELEMENTS
+  ============================ */
+  .glass {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* ============================
+     RESPONSIVE
+  ============================ */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 64px; left: 0; right: 0;
+      background: rgba(5,8,17,0.97); padding: 20px 24px;
+      border-bottom: 1px solid var(--border); gap: 16px;
+    }
+    .features-wrapper { grid-template-columns: 1fr; }
+    .feature-main { flex-direction: column; }
+    .feature-visual { flex: none; width: 100%; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .steps-flow { flex-direction: column; gap: 40px; }
+    .steps-flow::before { display: none; }
+    .hero-stats { flex-wrap: wrap; }
+    .hero-stat { min-width: 120px; }
+    .evidence .inner { grid-template-columns: 1fr; }
+    .gap-grid { grid-template-columns: 1fr; }
+    .gap-main, .gap-side { grid-column: 1 / -1; }
+    .gap-points { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ============================
+     TICKER
+  ============================ */
+  .ticker-wrap {
+    overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 14px 0; background: var(--bg2);
+  }
+  .ticker {
+    display: flex; gap: 64px; width: max-content;
+    animation: ticker 30s linear infinite;
+  }
+  .ticker-item { font-size: 0.82rem; color: var(--dim); white-space: nowrap; font-weight: 400; }
+  .ticker-item::before { content: '•'; color: rgba(79,142,247,0.9); margin-right: 10px; }
+  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* Floating UI card mockup inside hero */
+  .float-card {
+    position: absolute; z-index: 2;
+    background: rgba(17,24,39,0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border2);
+    border-radius: 16px; padding: 16px 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    animation: floatCard 6s ease-in-out infinite;
+  }
+  .float-card-1 { left: 4%; top: 30%; animation-delay: 0s; }
+  .float-card-2 { right: 4%; top: 45%; animation-delay: -3s; }
+  @keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .fc-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 6px; }
+  .fc-val { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; color: var(--text); }
+  .fc-sub { font-size: 0.72rem; color: var(--accent3); margin-top: 3px; }
+  .fc-ring {
+    width: 52px; height: 52px; border-radius: 50%;
+    border: 3px solid rgba(79,142,247,0.15);
+    border-top-color: var(--accent);
+    animation: spin 2s linear infinite;
+  }
+  @keyframes spin { to{transform:rotate(360deg)} }
+
+  @media (max-width: 768px) {
+    .float-card { display: none; }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .orb, .ticker, .float-card, .fc-ring, .meter-fill.anim { animation: none !important; }
+    .reveal { transition: none !important; transform: none !important; opacity: 1 !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================
+     NAVIGATION
+============================ -->
+<nav>
+  <div class="inner">
+    <div class="logo">Focus Reward AI</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#gap">Why Others Fail</a></li>
+      <li><a href="#solution">Features</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#users">For You</a></li>
+      <li><a href="#future">Roadmap</a></li>
+      <li><a href="#cta" class="nav-cta">Get Early Access</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============================
+     HERO SECTION
+============================ -->
+<section id="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grid-bg"></div>
+
+  <!-- Floating UI cards (decorative) -->
+  <div class="float-card float-card-1">
+    <div class="fc-label">Focus Score Today</div>
+    <div class="fc-val">84%</div>
+    <div class="fc-sub">▲ +12% vs yesterday</div>
+  </div>
+  <div class="float-card float-card-2">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="fc-ring"></div>
+      <div>
+        <div class="fc-label">Deep Work Session</div>
+        <div class="fc-val" style="font-size:1rem;">47:23</div>
+        <div class="fc-sub">Active · Distractions blocked</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Open Innovation · AI Productivity Platform
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line1">Take Back</span>
+      <span class="line2">Your Attention.</span>
+    </h1>
+    <p class="hero-sub">
+      Focus Reward AI is an attention intelligence layer that protects deep work, cuts notification noise, and builds healthier tech habits—without rigid rules or guilt-driven blockers.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#cta" data-scroll>Start for Free</a>
+      <a class="btn-ghost" href="#solution" data-scroll>See Features</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num" data-counter="11" data-suffix="×">11×</div>
+      <div class="label">Interruptions per hour (reported in workplace studies)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num" data-counter="28" data-suffix="%">28%</div>
+      <div class="label">Workday lost to distractions (Basex, via Reuters)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num" data-counter="5" data-suffix="min">5min</div>
+      <div class="label">Average recovery per interruption (Basex, via Reuters)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num" data-counter="588" data-suffix="B">$588B</div>
+      <div class="label">Estimated annual cost of workplace interruptions (Basex)</div>
+    </div>
+  </div>
+</section>
+
+<!-- Evidence strip -->
+<section class="evidence" aria-label="Evidence">
+  <div class="container">
+    <div class="inner">
+      <div class="evidence-item reveal">
+        <div class="k">Interruptions are expensive</div>
+        <div class="d">Reuters reports Basex’s estimate of <strong>$588B/year</strong> in lost productivity due to workplace interruptions and distractions.</div>
+        <a href="https://www.reuters.com/article/us-work-interruptions/u-s-worker-interruptions-costly-research-shows-idUSN1345262720061213/" target="_blank" rel="noopener noreferrer">Source: Reuters (Basex)</a>
+      </div>
+      <div class="evidence-item reveal reveal-delay-1">
+        <div class="k">Attention residue is real</div>
+        <div class="d">Switching tasks leaves “residue” that degrades performance on the next task—especially when the previous work is unfinished.</div>
+        <a href="https://doi.org/10.1016/j.obhdp.2009.04.002" target="_blank" rel="noopener noreferrer">Source: Leroy (2009), OBHDP</a>
+      </div>
+      <div class="evidence-item reveal reveal-delay-2">
+        <div class="k">Interruptions increase stress</div>
+        <div class="d">Studies find interrupted work can raise stress and time pressure—even if tasks finish faster.</div>
+        <a href="https://ics.uci.edu/~gmark/chi08-mark.pdf" target="_blank" rel="noopener noreferrer">Related: Mark et al. (2008)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">Deep Work Mode</span>
+    <span class="ticker-item">AI Distraction Shield</span>
+    <span class="ticker-item">Attention Analytics</span>
+    <span class="ticker-item">Smart Notifications</span>
+    <span class="ticker-item">Habit Intelligence</span>
+    <span class="ticker-item">Flow State Tracking</span>
+    <span class="ticker-item">Burnout Prevention</span>
+    <span class="ticker-item">Focus Scheduling</span>
+    <span class="ticker-item">Deep Work Mode</span>
+    <span class="ticker-item">AI Distraction Shield</span>
+    <span class="ticker-item">Attention Analytics</span>
+    <span class="ticker-item">Smart Notifications</span>
+    <span class="ticker-item">Habit Intelligence</span>
+    <span class="ticker-item">Flow State Tracking</span>
+    <span class="ticker-item">Burnout Prevention</span>
+    <span class="ticker-item">Focus Scheduling</span>
+  </div>
+</div>
+
+<!-- ============================
+     PROBLEM SECTION
+============================ -->
+<section id="problem" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">The Problem</div>
+      <h2>We're Losing the <br>Battle for Our Minds</h2>
+      <p>Modern tech isn’t neutral. Feeds are optimized for engagement, notifications compete for urgency, and work tools reward constant availability.</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card reveal reveal-delay-1" style="--card-accent: #4f8ef7">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+            <path d="M8.5 2.75h7A2.75 2.75 0 0 1 18.25 5.5v13A2.75 2.75 0 0 1 15.5 21.25h-7A2.75 2.75 0 0 1 5.75 18.5v-13A2.75 2.75 0 0 1 8.5 2.75Z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M9 6h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M12 18.2h.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Doom Scrolling</h3>
+        <p>The average person checks their phone 96 times a day, destroying any chance of sustained focus.</p>
+        <span class="stat">96 phone checks/day</span>
+      </div>
+      <div class="problem-card reveal reveal-delay-2" style="--card-accent: #7c5af6">
+        <div class="icon" aria-hidden="true" style="color:var(--accent2);background:rgba(124,90,246,0.1);">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+            <path d="M12 3.2a5.8 5.8 0 0 0-5.8 5.8v2.7c0 .8-.3 1.6-.9 2.2l-1 1.1c-.4.5 0 1.3.7 1.3h14c.7 0 1.1-.8.7-1.3l-1-1.1c-.6-.6-.9-1.4-.9-2.2V9A5.8 5.8 0 0 0 12 3.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M9.5 18.2a2.6 2.6 0 0 0 5 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Notification Overload</h3>
+        <p>We receive 80+ push notifications daily — interrupting thought, shattering concentration, causing chronic stress.</p>
+        <span class="stat" style="background:rgba(124,90,246,0.1);border-color:rgba(124,90,246,0.2);color:var(--accent2)">80+ interruptions/day</span>
+      </div>
+      <div class="problem-card reveal reveal-delay-3" style="--card-accent: #f75a8e">
+        <div class="icon" aria-hidden="true" style="color:var(--accent4);background:rgba(247,90,142,0.1);">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+            <path d="M8.5 7.2A3.2 3.2 0 0 1 11.7 4h.4A3.2 3.2 0 0 1 15.3 7.2v.3c0 .4.2.8.5 1.1.6.5 1 1.3 1 2.2v4.1a3.1 3.1 0 0 1-3.1 3.1H10a3.1 3.1 0 0 1-3.1-3.1v-4.1c0-.9.4-1.7 1-2.2.3-.3.5-.7.5-1.1v-.3Z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M9.2 12.3h5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M9.2 14.9h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Fragmented Attention</h3>
+        <p>Constant task-switching creates cognitive residue — your brain stays half-stuck on the last task, unable to fully commit.</p>
+        <span class="stat" style="background:rgba(247,90,142,0.1);border-color:rgba(247,90,142,0.2);color:var(--accent4)">40% productivity loss</span>
+      </div>
+      <div class="problem-card reveal reveal-delay-4" style="--card-accent: #00d4a8">
+        <div class="icon" aria-hidden="true" style="color:var(--accent3);background:rgba(0,212,168,0.1);">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+            <path d="M12 21s7-4.6 7-11.2A4.8 4.8 0 0 0 14.2 5c-1.3 0-2.4.6-3.1 1.5C10.4 5.6 9.3 5 8 5a4.8 4.8 0 0 0-4.8 4.8C3.2 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M8.5 14.9c1.1.9 2.3 1.3 3.5 1.3s2.4-.4 3.5-1.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Digital Burnout</h3>
+        <p>77% of workers experience burnout — not from overwork but from the mental exhaustion of perpetual digital chaos.</p>
+        <span class="stat" style="background:rgba(0,212,168,0.1);border-color:rgba(0,212,168,0.2);color:var(--accent3)">77% report burnout</span>
+      </div>
+      <div class="problem-card reveal reveal-delay-5" style="--card-accent: #f7a854">
+        <div class="icon" aria-hidden="true" style="color:#f7a854;background:rgba(247,168,84,0.1);">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+            <path d="M7 3.5h10M7 20.5h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M8.2 4.5v3.2c0 1 .4 2 1.1 2.7l1.2 1.2c.8.8.8 2.1 0 2.9l-1.2 1.2c-.7.7-1.1 1.7-1.1 2.7v.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15.8 4.5v3.2c0 1-.4 2-1.1 2.7l-1.2 1.2c-.8.8-.8 2.1 0 2.9l1.2 1.2c.7.7 1.1 1.7 1.1 2.7v.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Wasted Deep Work Hours</h3>
+        <p>Only 11% of employees feel they regularly achieve deep, uninterrupted work — the rest exists in perpetual shallow mode.</p>
+        <span class="stat" style="background:rgba(247,168,84,0.1);border-color:rgba(247,168,84,0.2);color:#f7a854">11% reach deep work</span>
+      </div>
+      <div class="problem-card reveal reveal-delay-1" style="--card-accent: #e857e8">
+        <div class="icon" aria-hidden="true" style="color:#e857e8;background:rgba(232,87,232,0.1);">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+            <path d="M4.5 19.5V4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4.5 19.5h15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7.5 16v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M11 16v-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M14.5 16v-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M18 16V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Zero Visibility</h3>
+        <p>Current tools give you blockers but no intelligence. You can't improve what you can't measure — attention data is invisible.</p>
+        <span class="stat" style="background:rgba(232,87,232,0.1);border-color:rgba(232,87,232,0.2);color:#e857e8">No actionable insights</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     WHY CURRENT SOLUTIONS FAIL
+============================ -->
+<section id="gap" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">Why current solutions fail</div>
+      <h2>Blockers Treat Symptoms.<br>Not the System.</h2>
+      <p>Most products either lock you out or shame you into discipline. FocusFlow is built as an adaptive system: protect attention, reduce noise, and guide behavior change.</p>
+    </div>
+
+    <div class="gap-grid reveal">
+      <div class="gap-main">
+        <h3 style="margin-bottom:12px">What’s missing today</h3>
+        <p style="max-width:58ch">People don’t need another “productivity app.” They need a layer that understands context, protects focus automatically, and turns patterns into better defaults.</p>
+        <ul class="gap-points" style="margin-top:18px">
+          <li><span class="gap-dot" aria-hidden="true">✓</span> Manual rules break the moment your day changes</li>
+          <li><span class="gap-dot" aria-hidden="true">✓</span> Blocklists don’t reduce notification noise</li>
+          <li><span class="gap-dot" aria-hidden="true">✓</span> No measurement → no improvement loop</li>
+          <li><span class="gap-dot" aria-hidden="true">✓</span> “More output” without wellbeing backfires</li>
+        </ul>
+      </div>
+
+      <div class="gap-side">
+        <div class="gap-card">
+          <h4>From restriction → to intelligence</h4>
+          <p>Instead of “ban everything,” FocusFlow identifies which triggers cause derailment and intervenes with the lightest effective action.</p>
+        </div>
+        <div class="gap-card">
+          <h4>From dashboards → to decisions</h4>
+          <p>Analytics are only useful if they change behavior. FocusFlow turns patterns into schedules, filters, and habit prompts—automatically.</p>
+        </div>
+        <div class="gap-card">
+          <h4>From solo tools → to open innovation</h4>
+          <p>Built to integrate with calendars, browsers, and team tools. A platform that evolves with community feedback and open APIs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     SOLUTION / FEATURES
+============================ -->
+<section id="solution" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">The Solution</div>
+      <h2>One Platform.<br>Total Focus Control.</h2>
+      <p>FocusFlow AI doesn't just block — it learns, adapts, and rebuilds your entire relationship with technology.</p>
+    </div>
+
+    <div class="features-wrapper">
+      <!-- Main hero feature -->
+      <div class="feature-main reveal">
+        <div class="feature-main-text">
+          <h3>Smart Focus Mode</h3>
+          <p style="color:var(--muted);margin-bottom:20px">Our AI reads your calendar, detects your peak energy windows, and automatically activates deep work sessions — blocking distractions before you even know they're coming.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;align-items:center;gap:10px;font-size:0.9rem;color:var(--muted)"><span style="color:var(--accent3)">✓</span> Adaptive context detection</li>
+            <li style="display:flex;align-items:center;gap:10px;font-size:0.9rem;color:var(--muted)"><span style="color:var(--accent3)">✓</span> Calendar-aware scheduling</li>
+            <li style="display:flex;align-items:center;gap:10px;font-size:0.9rem;color:var(--muted)"><span style="color:var(--accent3)">✓</span> Biometric-ready flow tracking</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="focus-meter">
+            <div class="label"><span>Focus Depth</span><span style="color:var(--accent3)">87%</span></div>
+            <div class="meter-track"><div class="meter-fill anim" style="width:87%"></div></div>
+          </div>
+          <div class="focus-meter">
+            <div class="label"><span>Distractions Blocked</span><span style="color:var(--accent)">94%</span></div>
+            <div class="meter-track"><div class="meter-fill anim" style="width:94%;animation-delay:0.3s;background:linear-gradient(90deg,var(--accent2),var(--accent))"></div></div>
+          </div>
+          <div class="focus-meter">
+            <div class="label"><span>Task Momentum</span><span style="color:var(--accent2)">72%</span></div>
+            <div class="meter-track"><div class="meter-fill anim" style="width:72%;animation-delay:0.6s;background:linear-gradient(90deg,var(--accent4),var(--accent2))"></div></div>
+          </div>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--accent3);text-align:center">
+            🟢 Deep Work Session Active · 47m 23s
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature cards grid -->
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feat-icon" style="background:rgba(124,90,246,0.12)">🤖</div>
+        <h3>AI Notification Filter</h3>
+        <p>Machine learning classifies every notification by urgency and context. Only truly critical alerts break through during focus sessions.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feat-icon" style="background:rgba(0,212,168,0.12)">⏱️</div>
+        <h3>Deep Work Timer</h3>
+        <p>Customizable Pomodoro-style sessions powered by AI that detects your actual energy levels and adjusts session length on the fly.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feat-icon" style="background:rgba(247,90,142,0.12)">📈</div>
+        <h3>Productivity Dashboard</h3>
+        <p>Visual breakdowns of your attention patterns, peak performance hours, and weekly focus trends — all in one elegant interface.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-4">
+        <div class="feat-icon" style="background:rgba(247,168,84,0.12)">🌱</div>
+        <h3>Habit Intelligence</h3>
+        <p>Tracks 30+ behavioral signals to build personalized habit loops that make focus effortless and reduce reliance on willpower alone.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-5">
+        <div class="feat-icon" style="background:rgba(79,142,247,0.12)">🧘</div>
+        <h3>Mindful Break Engine</h3>
+        <p>At the right moment, FocusFlow suggests evidence-based micro-recovery breaks to prevent cognitive fatigue and sustain output quality.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feat-icon" style="background:rgba(232,87,232,0.12)">✅</div>
+        <h3>Task Prioritization AI</h3>
+        <p>Combines your goals, deadlines, and energy levels to auto-rank your daily tasks — so you always know exactly what to tackle first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     HOW IT WORKS
+============================ -->
+<section id="how" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">How It Works</div>
+      <h2>Intelligence in 5 Steps</h2>
+      <p>FocusFlow AI continuously learns from your behavior to build a personalized focus system that improves every single day.</p>
+    </div>
+
+    <div class="steps-flow reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Analyze Habits</h3>
+        <p>FocusFlow silently maps your digital behavior patterns, peak energy windows, and distraction triggers over the first week.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background:linear-gradient(135deg,var(--accent2),var(--accent4))">02</div>
+        <h3>Detect Distractors</h3>
+        <p>AI identifies your unique distraction profile — the exact apps, notifications, and habits that steal your most productive hours.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background:linear-gradient(135deg,var(--accent3),var(--accent))">03</div>
+        <h3>Build Focus Plan</h3>
+        <p>A personalized daily focus architecture is generated — deep work blocks, break rhythms, and notification schedules built for you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background:linear-gradient(135deg,var(--accent4),var(--accent2))">04</div>
+        <h3>Run & Protect</h3>
+        <p>Sessions run automatically. FocusFlow blocks distractions, filters notifications in real time, and keeps you locked in flow state.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background:linear-gradient(135deg,#f7a854,var(--accent4))">05</div>
+        <h3>Improve Daily</h3>
+        <p>Weekly insights and AI-generated reports show your progress, with evolving recommendations as your work patterns change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     WHY INNOVATIVE
+============================ -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">Why It's Different</div>
+      <h2>Not Just a Blocker.<br>An Intelligence Layer.</h2>
+      <p>Every other app tells you to focus. FocusFlow AI actually makes it happen — by learning, adapting, and rebuilding how you work.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">🧬</div>
+        <h3>Adapts to You</h3>
+        <p>No rigid rules. The AI builds a model of your behavior and continuously evolves — fitting your workflow, not fighting it.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">⚡</div>
+        <h3>Real-Time Personalization</h3>
+        <p>Decisions are made in milliseconds. As your context changes, FocusFlow adjusts — meeting you exactly where you are.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">🌐</div>
+        <h3>Open Innovation Model</h3>
+        <p>Built on open APIs and community feedback — a living platform that evolves with collective insight rather than closed product decisions.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-4">
+        <div class="why-icon">💆</div>
+        <h3>Productivity + Wellness</h3>
+        <p>Most tools sacrifice wellbeing for output. FocusFlow treats mental health as a first-class feature — optimizing for long-term sustainable performance.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-5">
+        <div class="why-icon">📊</div>
+        <h3>Data-Driven Improvement</h3>
+        <p>Attention analytics give you clarity that willpower never can. Understand your mind with the same precision as your business metrics.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">🔒</div>
+        <h3>Privacy First</h3>
+        <p>All behavioral data stays on-device. FocusFlow is the only AI productivity platform with a zero-cloud behavioral model architecture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     TARGET USERS
+============================ -->
+<section id="users" class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">Who It's For</div>
+      <h2>Built for Everyone<br>Who Does Deep Work</h2>
+      <p>Whether you ship code, build companies, study for exams, or create content — FocusFlow AI meets you at your craft.</p>
+    </div>
+
+    <div class="users-grid">
+      <div class="user-card reveal reveal-delay-1">
+        <div class="user-avatar" style="background:rgba(79,142,247,0.12)">🧑‍💻</div>
+        <h3>Developers</h3>
+        <p>Protect deep coding sessions from Slack, email, and PR notifications.</p>
+      </div>
+      <div class="user-card reveal reveal-delay-2">
+        <div class="user-avatar" style="background:rgba(0,212,168,0.12)">🎓</div>
+        <h3>Students</h3>
+        <p>Stay in study flow without Instagram, YouTube, or social media pulling focus.</p>
+      </div>
+      <div class="user-card reveal reveal-delay-3">
+        <div class="user-avatar" style="background:rgba(124,90,246,0.12)">🏠</div>
+        <h3>Remote Workers</h3>
+        <p>Create professional structure and boundaries when home and work blur together.</p>
+      </div>
+      <div class="user-card reveal reveal-delay-4">
+        <div class="user-avatar" style="background:rgba(247,90,142,0.12)">🚀</div>
+        <h3>Entrepreneurs</h3>
+        <p>Prioritize ruthlessly. FocusFlow identifies your highest-leverage tasks automatically.</p>
+      </div>
+      <div class="user-card reveal reveal-delay-5">
+        <div class="user-avatar" style="background:rgba(247,168,84,0.12)">🎨</div>
+        <h3>Creators</h3>
+        <p>Protect your creative headspace from the algorithms designed to consume it.</p>
+      </div>
+      <div class="user-card reveal reveal-delay-1">
+        <div class="user-avatar" style="background:rgba(232,87,232,0.12)">🏢</div>
+        <h3>Corporate Teams</h3>
+        <p>Org-wide focus culture with team dashboards, shared focus blocks, and meeting hygiene.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FUTURE SCOPE
+============================ -->
+<section id="future" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">Roadmap</div>
+      <h2>The Future of<br>Attention Intelligence</h2>
+      <p>FocusFlow AI is building a complete ecosystem — a new infrastructure layer for human productivity in the digital age.</p>
+    </div>
+
+    <div class="future-list">
+      <div class="future-item reveal reveal-delay-1">
+        <div class="future-bullet">🌐</div>
+        <div>
+          <h4>Browser Extension</h4>
+          <p>Deep integration with Chrome, Firefox, and Edge — context-aware blocking across every website you visit.</p>
+        </div>
+      </div>
+      <div class="future-item reveal reveal-delay-2">
+        <div class="future-bullet">📱</div>
+        <div>
+          <h4>Mobile App (iOS + Android)</h4>
+          <p>Full focus control on the device you're most distracted by — with Screen Time API integration.</p>
+        </div>
+      </div>
+      <div class="future-item reveal reveal-delay-3">
+        <div class="future-bullet">👥</div>
+        <div>
+          <h4>Team Productivity Suite</h4>
+          <p>Shared focus blocks, async communication frameworks, and team attention health scores.</p>
+        </div>
+      </div>
+      <div class="future-item reveal reveal-delay-4">
+        <div class="future-bullet">📊</div>
+        <div>
+          <h4>Enterprise Analytics</h4>
+          <p>CTO-level dashboards showing org-wide focus trends, meeting costs, and productivity ROI.</p>
+        </div>
+      </div>
+      <div class="future-item reveal reveal-delay-5">
+        <div class="future-bullet">⌚</div>
+        <div>
+          <h4>Wearable Integration</h4>
+          <p>Apple Watch and Fitbit HRV data feeds real stress signals directly into your focus schedule.</p>
+        </div>
+      </div>
+      <div class="future-item reveal reveal-delay-1">
+        <div class="future-bullet">🎒</div>
+        <div>
+          <h4>Education Edition</h4>
+          <p>Purpose-built for schools and universities — class schedules, exam modes, and parent dashboards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FINAL CTA
+============================ -->
+<section id="cta">
+  <div class="cta-orb cta-orb-1"></div>
+  <div class="cta-orb cta-orb-2"></div>
+  <div class="cta-inner reveal">
+    <div class="tag" style="margin:0 auto 24px">Open Innovation · Join the Movement</div>
+    <h2>Your Best Work Starts<br>When Distraction Ends.</h2>
+    <p>Get early access to the private beta. We’ll email a demo link and onboarding steps.</p>
+    <form class="cta-form" id="leadForm" autocomplete="on">
+      <label class="sr-only" for="email">Email</label>
+      <input class="input" id="email" name="email" type="email" placeholder="you@domain.com" required aria-label="Email address">
+      <button class="btn-primary" type="submit" style="font-size:1rem;padding:16px 40px">Get Early Access</button>
+      <button class="btn-ghost" type="button" id="demoBtn" style="font-size:1rem;padding:16px 40px">Request a Demo</button>
+    </form>
+    <p id="formNote" style="margin-top:18px;font-size:0.82rem;color:var(--dim)">No credit card required · Private beta · Cancel anytime</p>
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER
+============================ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="logo" style="margin-bottom:8px">FocusFlow AI</div>
+        <p style="font-size:0.83rem;color:var(--dim)">Open Innovation</p>
+      </div>
+      <div class="footer-links">
+        <a href="#problem">Problem</a>
+        <a href="#gap">Why Others Fail</a>
+        <a href="#solution">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#future">Roadmap</a>
+      </div>
+      <div class="footer-copy">
+        Built with purpose. Designed for focus. © 2026 FocusFlow AI
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================
+     JAVASCRIPT
+============================ -->
+<script>
+  // ----------------------------
+  // Navigation (mobile + a11y)
+  // ----------------------------
+  const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+
+  function setNavOpen(open) {
+    navLinks.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  hamburger.addEventListener('click', () => {
+    setNavOpen(!navLinks.classList.contains('open'));
+  });
+
+  // Scroll reveal using IntersectionObserver
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(5,8,17,0.95)';
+    } else {
+      nav.style.background = 'rgba(5,8,17,0.7)';
+    }
+  });
+
+  // ----------------------------
+  // Smooth scroll (respects reduced motion)
+  // ----------------------------
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-scroll]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+  // ----------------------------
+  // Animated number counter (hero stats)
+  // ----------------------------
+  function animateCounter(el, target, suffix) {
+    let current = 0;
+    const increment = target / 60;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      // Format based on suffix
+      if (suffix === '×') el.textContent = Math.round(current) + '×';
+      else if (suffix === '%') el.textContent = Math.round(current) + '%';
+      else if (suffix === 'min') el.textContent = Math.round(current) + 'min';
+      else if (suffix === 'B') el.textContent = '$' + current.toFixed(0) + 'B';
+    }, 16);
+  }
+
+  // Trigger counter animation once hero stats are visible
+  const statsObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const nums = document.querySelectorAll('.hero-stat .num');
+        nums.forEach((el) => {
+          const raw = Number(el.getAttribute('data-counter'));
+          const suffix = el.getAttribute('data-suffix') || '';
+          if (!Number.isFinite(raw)) return;
+          animateCounter(el, raw, suffix);
+        });
+        statsObs.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const statsSection = document.querySelector('.hero-stats');
+  if (statsSection) statsObs.observe(statsSection);
+
+  // Close nav when link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      setNavOpen(false);
+    });
+  });
+
+  // Close nav on escape
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setNavOpen(false);
+  });
+
+  // ----------------------------
+  // Lead capture (safe form submission)
+  // ----------------------------
+  const leadForm = document.getElementById('leadForm');
+  const formNote = document.getElementById('formNote');
+  const demoBtn = document.getElementById('demoBtn');
+
+  if (leadForm && formNote) {
+    leadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = (new FormData(leadForm).get('email') || '').toString().trim();
+      if (!email) return;
+      formNote.textContent = `Thanks — we’ll reach out to ${email} with beta access.`;
+      leadForm.reset();
+    });
+  }
+
+  if (demoBtn && formNote) {
+    demoBtn.addEventListener('click', () => {
+      formNote.textContent = 'Demo requests are open. Add your email and we’ll schedule a walkthrough.';
+      const emailEl = document.getElementById('email');
+      if (emailEl) emailEl.focus();
+    });
+  }
+</script>
+</main>
+</body>
+</html>

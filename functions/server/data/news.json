@@ -1,0 +1,152 @@
+[
+  {
+    "id": "n1",
+    "headline": "India's GDP Growth Hits 7.2% in Q4, Fastest Among G20 Nations",
+    "summary": "India recorded 7.2% GDP growth in the January–March quarter, outpacing all G20 economies. Strong manufacturing and services sectors drove the surge, while rural consumption showed revival. The IMF raised India's full-year forecast to 6.8%, citing infrastructure investment momentum.",
+    "category": "Economy",
+    "source": "Reuters",
+    "publishedAt": "2026-04-18T06:30:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n2",
+    "headline": "ISRO Successfully Launches Gaganyaan Test Module into Orbit",
+    "summary": "ISRO completed the crucial uncrewed orbital test of Gaganyaan, India's first human spaceflight mission. The crew module orbited Earth for 3 days before a successful splashdown in the Bay of Bengal. Manned mission now scheduled for late 2027, pending final safety reviews.",
+    "category": "Science",
+    "source": "The Hindu",
+    "publishedAt": "2026-04-17T14:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n3",
+    "headline": "RBI Holds Repo Rate at 6.0%, Signals Accommodative Stance for Growth",
+    "summary": "The Reserve Bank of India kept the repo rate unchanged at 6.0% in its April policy meeting, signaling continued support for economic growth. Governor Das cited easing inflation and stable food prices as key factors behind the decision.",
+    "category": "Finance",
+    "source": "Economic Times",
+    "publishedAt": "2026-04-17T11:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n4",
+    "headline": "Supreme Court Mandates Environmental Impact Reports for Urban Projects",
+    "summary": "In a landmark ruling, the Supreme Court directed all state governments to mandate environmental impact assessments for urban development projects exceeding ₹500 crore. The bench cited rising pollution levels and loss of green cover in metro cities.",
+    "category": "Law",
+    "source": "LiveLaw",
+    "publishedAt": "2026-04-17T09:30:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n5",
+    "headline": "Global AI Safety Summit Concludes with 28-Nation Accord on Regulation",
+    "summary": "The 2026 Global AI Safety Summit in Seoul concluded with 28 nations signing a binding accord on AI governance. Key provisions include mandatory safety testing for frontier models, transparency requirements for training data, and cross-border incident reporting frameworks.",
+    "category": "Technology",
+    "source": "TechCrunch",
+    "publishedAt": "2026-04-16T18:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n6",
+    "headline": "IPL 2026: Mumbai Indians Break Record with 11th Consecutive Win",
+    "summary": "Mumbai Indians secured their 11th straight victory this season, defeating Chennai Super Kings by 42 runs. Jasprit Bumrah took 4 wickets for 18 runs, while Suryakumar Yadav smashed 89 off 47 balls to set a commanding 208-run target.",
+    "category": "Sports",
+    "source": "ESPNcricinfo",
+    "publishedAt": "2026-04-16T22:30:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n7",
+    "headline": "Cabinet Approves ₹2.5 Lakh Crore Green Hydrogen Mission Phase 2",
+    "summary": "The Union Cabinet approved Phase 2 of the National Green Hydrogen Mission with ₹2.5 lakh crore allocation over 5 years. India aims to produce 10 million tonnes of green hydrogen annually by 2030, creating an estimated 6 lakh new jobs in the clean energy sector.",
+    "category": "Policy",
+    "source": "PIB India",
+    "publishedAt": "2026-04-16T15:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n8",
+    "headline": "UPI Crosses 20 Billion Monthly Transactions for First Time",
+    "summary": "India's Unified Payments Interface processed over 20 billion transactions in March 2026, worth ₹22.4 lakh crore. UPI now covers 450 million unique users, with Tier-2 and Tier-3 cities driving 58% of new registrations over the past quarter.",
+    "category": "Technology",
+    "source": "NPCI",
+    "publishedAt": "2026-04-15T12:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n9",
+    "headline": "Indian Students Win 4 Gold Medals at International Math Olympiad",
+    "summary": "India's six-member team brought home 4 gold and 2 silver medals at the 2026 International Mathematics Olympiad held in Tokyo, ranking 3rd globally. Arjun Mehta from Hyderabad scored a perfect 42/42, only the 5th Indian to achieve this feat.",
+    "category": "Education",
+    "source": "India Today",
+    "publishedAt": "2026-04-15T16:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n10",
+    "headline": "WHO Declares India Measles-Free After Decade-Long Vaccination Drive",
+    "summary": "The World Health Organization officially certified India as measles-free following a 10-year nationwide vaccination campaign that covered 98% of children under 5. India becomes the largest country by population to achieve this milestone.",
+    "category": "Health",
+    "source": "WHO",
+    "publishedAt": "2026-04-15T08:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n11",
+    "headline": "Tesla Announces ₹7,500 Crore Manufacturing Plant in Gujarat",
+    "summary": "Tesla confirmed a ₹7,500 crore investment to build its first Indian manufacturing facility near Ahmedabad, Gujarat. The plant will produce Model 2 and Model Y vehicles starting 2028, creating 12,000 direct jobs. Gujarat offered 30-year land lease at subsidized rates.",
+    "category": "Business",
+    "source": "Bloomberg",
+    "publishedAt": "2026-04-14T19:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n12",
+    "headline": "Chandrayaan-4 Mission Approved: India to Bring Back Lunar Samples",
+    "summary": "The Indian government approved the ₹2,104 crore Chandrayaan-4 mission, which will attempt to bring back soil samples from the Moon's south pole. Launch is planned for 2028, building on Chandrayaan-3's historic soft landing achievement in 2023.",
+    "category": "Science",
+    "source": "ISRO",
+    "publishedAt": "2026-04-14T10:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n13",
+    "headline": "New Education Policy: Coding Mandatory from Class 3 Across All Schools",
+    "summary": "MHRD announced that coding and computational thinking will become a mandatory subject starting Class 3 in all CBSE, ICSE, and state board schools from the 2027 academic year. A ₹4,000 crore budget will fund teacher training and digital lab infrastructure.",
+    "category": "Education",
+    "source": "NDTV",
+    "publishedAt": "2026-04-13T14:30:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n14",
+    "headline": "Indian Rupee Strengthens to ₹78.50 as Foreign Inflows Surge",
+    "summary": "The rupee appreciated to a 14-month high of ₹78.50 against the US dollar, driven by $8.2 billion in foreign portfolio inflows during April. Strong corporate earnings and declining crude oil prices bolstered market sentiment across Asian currencies.",
+    "category": "Finance",
+    "source": "Mint",
+    "publishedAt": "2026-04-13T10:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  },
+  {
+    "id": "n15",
+    "headline": "Delhi Metro Phase 5 Gets Green Signal: 45 New Stations by 2030",
+    "summary": "The Cabinet Committee on Economic Affairs approved Delhi Metro Phase 5 with 3 new corridors spanning 62 km and 45 stations. The ₹37,000 crore project will connect Dwarka Sector 25 to Noida Airport, easing commuter strain on existing lines.",
+    "category": "Infrastructure",
+    "source": "Times of India",
+    "publishedAt": "2026-04-12T16:00:00Z",
+    "readTimeSeconds": 30,
+    "coinsOnRead": 5
+  }
+]

@@ -1,0 +1,215 @@
+[
+  {
+    "id": "c1",
+    "title": "Python for Everybody",
+    "provider": "University of Michigan · Coursera",
+    "instructor": "Dr. Charles Severance",
+    "thumbnail": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600&h=400&fit=crop",
+    "category": "Programming",
+    "difficulty": "Beginner",
+    "duration": "8 weeks",
+    "rating": 4.8,
+    "totalModules": 5,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c1m1", "title": "Why We Program", "duration": "2 hrs"},
+      {"id": "c1m2", "title": "Variables & Expressions", "duration": "3 hrs"},
+      {"id": "c1m3", "title": "Conditional Code", "duration": "2.5 hrs"},
+      {"id": "c1m4", "title": "Functions", "duration": "3 hrs"},
+      {"id": "c1m5", "title": "Loops & Iterations", "duration": "2.5 hrs"}
+    ],
+    "description": "Learn to program and analyze data with Python. No prior experience needed."
+  },
+  {
+    "id": "c2",
+    "title": "Machine Learning",
+    "provider": "Stanford · Coursera",
+    "instructor": "Andrew Ng",
+    "thumbnail": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
+    "category": "AI & ML",
+    "difficulty": "Intermediate",
+    "duration": "11 weeks",
+    "rating": 4.9,
+    "totalModules": 4,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c2m1", "title": "Supervised Learning", "duration": "4 hrs"},
+      {"id": "c2m2", "title": "Unsupervised Learning", "duration": "3 hrs"},
+      {"id": "c2m3", "title": "Neural Networks", "duration": "5 hrs"},
+      {"id": "c2m4", "title": "Best Practices", "duration": "3 hrs"}
+    ],
+    "description": "Master the fundamentals of machine learning and build intelligent systems."
+  },
+  {
+    "id": "c3",
+    "title": "The Science of Well-Being",
+    "provider": "Yale University · Coursera",
+    "instructor": "Prof. Laurie Santos",
+    "thumbnail": "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=600&h=400&fit=crop",
+    "category": "Personal Growth",
+    "difficulty": "Beginner",
+    "duration": "10 weeks",
+    "rating": 4.9,
+    "totalModules": 4,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c3m1", "title": "Misconceptions About Happiness", "duration": "2 hrs"},
+      {"id": "c3m2", "title": "Why Our Expectations Are Wrong", "duration": "3 hrs"},
+      {"id": "c3m3", "title": "Strategies That Work", "duration": "2 hrs"},
+      {"id": "c3m4", "title": "Putting It Into Practice", "duration": "2 hrs"}
+    ],
+    "description": "Increase your own happiness and build more productive habits."
+  },
+  {
+    "id": "c4",
+    "title": "Google Data Analytics",
+    "provider": "Google · Coursera",
+    "instructor": "Google Career Certificates",
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    "category": "Data Science",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "rating": 4.8,
+    "totalModules": 5,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c4m1", "title": "Foundations: Data, Data, Everywhere", "duration": "4 hrs"},
+      {"id": "c4m2", "title": "Ask Questions to Make Data-Driven Decisions", "duration": "3 hrs"},
+      {"id": "c4m3", "title": "Prepare Data for Exploration", "duration": "4 hrs"},
+      {"id": "c4m4", "title": "Process Data from Dirty to Clean", "duration": "5 hrs"},
+      {"id": "c4m5", "title": "Analyze Data to Answer Questions", "duration": "4 hrs"}
+    ],
+    "description": "Gain in-demand skills that prepare you for an entry-level job as a data analyst."
+  },
+  {
+    "id": "c5",
+    "title": "Financial Markets",
+    "provider": "Yale · Coursera",
+    "instructor": "Robert Shiller",
+    "thumbnail": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
+    "category": "Finance",
+    "difficulty": "Beginner",
+    "duration": "7 weeks",
+    "rating": 4.8,
+    "totalModules": 4,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c5m1", "title": "Module 1: Basics of Financial Markets", "duration": "3 hrs"},
+      {"id": "c5m2", "title": "Module 2: Insurance & CAPM", "duration": "3 hrs"},
+      {"id": "c5m3", "title": "Module 3: Stocks & Bonds", "duration": "4 hrs"},
+      {"id": "c5m4", "title": "Module 4: Real Estate & Regulation", "duration": "3 hrs"}
+    ],
+    "description": "An overview of the ideas, methods, and institutions that permit human society to manage risks and foster enterprise."
+  },
+  {
+    "id": "c6",
+    "title": "Digital Marketing & E-commerce",
+    "provider": "Google · Coursera",
+    "instructor": "Google Career Certificates",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    "category": "Marketing",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "rating": 4.7,
+    "totalModules": 4,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c6m1", "title": "Foundations of Digital Marketing", "duration": "4 hrs"},
+      {"id": "c6m2", "title": "Attract & Engage Customers", "duration": "3 hrs"},
+      {"id": "c6m3", "title": "From Likes to Leads", "duration": "3 hrs"},
+      {"id": "c6m4", "title": "Measure & Optimize", "duration": "4 hrs"}
+    ],
+    "description": "Get ready for a career in the high-growth fields of digital marketing and e-commerce."
+  },
+  {
+    "id": "c7",
+    "title": "Deep Learning Specialization",
+    "provider": "deeplearning.ai · Coursera",
+    "instructor": "Andrew Ng",
+    "thumbnail": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop",
+    "category": "AI & ML",
+    "difficulty": "Advanced",
+    "duration": "5 months",
+    "rating": 4.9,
+    "totalModules": 5,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c7m1", "title": "Neural Networks & Deep Learning", "duration": "4 hrs"},
+      {"id": "c7m2", "title": "Improving Deep Neural Networks", "duration": "3 hrs"},
+      {"id": "c7m3", "title": "Structuring ML Projects", "duration": "2 hrs"},
+      {"id": "c7m4", "title": "CNNs", "duration": "4 hrs"},
+      {"id": "c7m5", "title": "Sequence Models", "duration": "3 hrs"}
+    ],
+    "description": "Become a deep learning expert. Master the fundamentals of deep learning and break into the AI space."
+  },
+  {
+    "id": "c8",
+    "title": "UI / UX Design",
+    "provider": "Google · Coursera",
+    "instructor": "Google Career Certificates",
+    "thumbnail": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
+    "category": "Design",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "rating": 4.7,
+    "totalModules": 4,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c8m1", "title": "Foundations of User Experience", "duration": "3 hrs"},
+      {"id": "c8m2", "title": "Start the UX Design Process", "duration": "4 hrs"},
+      {"id": "c8m3", "title": "Build Wireframes & Prototypes", "duration": "3 hrs"},
+      {"id": "c8m4", "title": "Conduct UX Research", "duration": "3 hrs"}
+    ],
+    "description": "Get on the fast track to a career in UX design. No experience or degree required."
+  },
+  {
+    "id": "c9",
+    "title": "Learning How to Learn",
+    "provider": "McMaster University · Coursera",
+    "instructor": "Dr. Barbara Oakley",
+    "thumbnail": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&h=400&fit=crop",
+    "category": "Personal Growth",
+    "difficulty": "Beginner",
+    "duration": "4 weeks",
+    "rating": 4.8,
+    "totalModules": 4,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c9m1", "title": "Focused vs. Diffuse Thinking", "duration": "2 hrs"},
+      {"id": "c9m2", "title": "Chunking", "duration": "3 hrs"},
+      {"id": "c9m3", "title": "Procrastination & Memory", "duration": "3 hrs"},
+      {"id": "c9m4", "title": "Renaissance Learning", "duration": "2 hrs"}
+    ],
+    "description": "Give yourself the best gift of mastering powerful mental tools used by experts in art, music, literature, math, science, sports, and many other disciplines."
+  },
+  {
+    "id": "c10",
+    "title": "Cybersecurity",
+    "provider": "Google · Coursera",
+    "instructor": "Google Career Certificates",
+    "thumbnail": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
+    "category": "Security",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "rating": 4.8,
+    "totalModules": 4,
+    "coinsPerModule": 25,
+    "coinsOnComplete": 100,
+    "modules": [
+      {"id": "c10m1", "title": "Foundations of Cybersecurity", "duration": "3 hrs"},
+      {"id": "c10m2", "title": "Managing Security Risks", "duration": "3 hrs"},
+      {"id": "c10m3", "title": "Networks & Network Security", "duration": "4 hrs"},
+      {"id": "c10m4", "title": "Linux & SQL", "duration": "4 hrs"}
+    ],
+    "description": "Prepare for a cybersecurity career. No experience required to get started."
+  }
+]

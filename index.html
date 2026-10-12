@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Reward - Get paid to focus.</title>
+  <meta name="description" content="Turn your screen time into real value. Get rewarded for deep work, mindfulness, and learning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================
+     NAVIGATION
+============================ -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <img src="images/logo.png" alt="Focus Reward" style="width:32px; height:32px; border-radius:10px;">
+      <span class="logo-text">Focus Reward</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#problem">The Problem</a></li>
+      <li><a href="#solution">Our Solution</a></li>
+      <li><a href="#coins">Coin System</a></li>
+      <li><a href="#rewards">Rewards</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme">◐</button></li>
+      <li><a href="#" id="navLoginBtn" class="nav-cta">Start Earning</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============================
+     HERO
+============================ -->
+<section id="hero">
+  <!-- Orbs deactivated for the human editorial touch -->
+  <div class="hero-grid-bg"></div>
+
+  <!-- Editorial photography (artificial floating animation removed) -->
+  <img src="images/hero_procrastination.png" class="float-card float-card-1" style="padding:0; border-radius:12px; object-fit:cover; width: 280px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)); border:8px solid #fff; transform: rotate(-3deg); animation: none;" alt="Procrastination scrolling">
+  <img src="images/hero_focus.png" class="float-card float-card-2" style="padding:0; border-radius:12px; object-fit:cover; width: 280px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)); border:8px solid #fff; transform: rotate(2deg); animation: none;" alt="Deep Focus and timer">
+
+  <div class="hero-content">
+    <h1 class="hero-title" style="margin-top:20px;">
+      <span class="line1">Stop doomscrolling.</span>
+      <span class="gradient-text">Start earning.</span>
+    </h1>
+    <p class="hero-sub">
+      Most apps steal your attention. We actually pay you for it. Read the news, learn a new skill, or practice mindfulness—and we'll reward you with real gift cards and subscriptions.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#" id="heroStartBtn">Start Earning Free</a>
+      <a class="btn btn-secondary" href="#solution">See How It Works</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">5,000+</div>
+      <div class="label">Courses from Coursera</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">60-word</div>
+      <div class="label">News bites (InShort style)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">4</div>
+      <div class="label">Guided meditations / month</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">₹500+</div>
+      <div class="label">Redeemable value monthly</div>
+    </div>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item"><i data-lucide="graduation-cap" class="t-icon"></i> Coursera Integration</span>
+    <span class="ticker-item"><i data-lucide="newspaper" class="t-icon"></i> InShort News Feed</span>
+    <span class="ticker-item"><i data-lucide="wind" class="t-icon"></i> Guided Meditation</span>
+    <span class="ticker-item"><i data-lucide="coins" class="t-icon"></i> Earn Coins</span>
+    <span class="ticker-item"><i data-lucide="bot" class="t-icon"></i> Redeem ChatGPT Plus</span>
+    <span class="ticker-item"><i data-lucide="shopping-cart" class="t-icon"></i> Amazon Gift Cards</span>
+    <span class="ticker-item"><i data-lucide="flame" class="t-icon"></i> Streak Bonuses</span>
+    <span class="ticker-item"><i data-lucide="activity" class="t-icon"></i> Progress Tracking</span>
+    <span class="ticker-item"><i data-lucide="graduation-cap" class="t-icon"></i> Coursera Integration</span>
+    <span class="ticker-item"><i data-lucide="newspaper" class="t-icon"></i> InShort News Feed</span>
+    <span class="ticker-item"><i data-lucide="wind" class="t-icon"></i> Guided Meditation</span>
+    <span class="ticker-item"><i data-lucide="coins" class="t-icon"></i> Earn Coins</span>
+    <span class="ticker-item"><i data-lucide="bot" class="t-icon"></i> Redeem ChatGPT Plus</span>
+    <span class="ticker-item"><i data-lucide="shopping-cart" class="t-icon"></i> Amazon Gift Cards</span>
+    <span class="ticker-item"><i data-lucide="flame" class="t-icon"></i> Streak Bonuses</span>
+    <span class="ticker-item"><i data-lucide="activity" class="t-icon"></i> Progress Tracking</span>
+  </div>
+</div>
+
+<!-- ============================
+     THE PROBLEM
+============================ -->
+<section id="problem" class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">The Challenge</div>
+      <h2>Screen time.<br>Now reimagined.</h2>
+      <p>Social media is engineered to distract. We designed a platform to empower. Stop losing hours to endless scrolling and paying for subscriptions you don’t fully utilize.</p>
+    </div>
+
+    <div style="display: flex; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px; position:relative;" class="reveal">
+        <img src="images/piechart.png" alt="Screen Time Graph" style="width: 100%; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); display:block;">
+        
+        <div style="position:absolute; top: 15%; left: 5%; background: var(--bg-glass); border: 1px solid var(--border); padding: 8px 12px; border-radius: var(--radius-tag); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); font-size: 0.85rem; font-weight: 600; color: var(--rose); box-shadow: var(--shadow-hover);">
+          <div style="font-size:1.1rem; margin-bottom:2px;">65%</div>
+          <div style="color:var(--text-primary); font-size:0.75rem;">Social Media</div>
+        </div>
+
+        <div style="position:absolute; bottom: 20%; right: 5%; background: var(--bg-glass); border: 1px solid var(--border); padding: 8px 12px; border-radius: var(--radius-tag); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); font-size: 0.85rem; font-weight: 600; color: var(--amber); box-shadow: var(--shadow-hover);">
+          <div style="font-size:1.1rem; margin-bottom:2px;">25%</div>
+          <div style="color:var(--text-primary); font-size:0.75rem;">Entertainment</div>
+        </div>
+
+        <div style="position:absolute; top: 30%; right: 10%; background: var(--bg-glass); border: 1px solid var(--border); padding: 8px 12px; border-radius: var(--radius-tag); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); font-size: 0.85rem; font-weight: 600; color: var(--emerald); box-shadow: var(--shadow-hover);">
+          <div style="font-size:1.1rem; margin-bottom:2px;">10%</div>
+          <div style="color:var(--text-primary); font-size:0.75rem;">Productivity</div>
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 32px;">
+        <div class="reveal reveal-d1">
+          <h3 style="font-size: 24px; margin-bottom: 8px;">The endless feed.</h3>
+          <p>You lose hours without gaining anything—no knowledge, no skill, no reward. Short-form vertical video is designed to keep you hooked endlessly.</p>
+        </div>
+        <div class="reveal reveal-d2">
+          <h3 style="font-size: 24px; margin-bottom: 8px;">Subscription fatigue.</h3>
+          <p>Between multiple streaming services and premium tools, you're paying thousands per month. Yet, no platform rewards you for actually learning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     OUR SOLUTION (3 Pillars)
+============================ -->
+<section id="solution" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">The Engine</div>
+      <h2>Incredibly rewarding.<br>By design.</h2>
+      <p>We built a seamless, unified experience that integrates world‑class courses, rapid news, and profound meditation—all engineered to automatically reward your progress.</p>
+    </div>
+
+    <!-- Block 1: Courses -->
+    <div style="display:flex; gap: 48px; align-items:center; flex-wrap:wrap; margin-bottom: 80px;" class="reveal">
+      <div style="flex:1; min-width:300px;">
+        <img src="images/subject_courses.png" style="width:100%; border-radius:var(--radius-card); box-shadow:var(--shadow-hover);" alt="Courses">
+      </div>
+      <div style="flex:1; min-width:300px;">
+        <div class="ios-icon-box" style="color: var(--sky);"><i data-lucide="graduation-cap"></i></div>
+        <h3 style="font-size:28px; margin-bottom:12px;">Curated Courses</h3>
+        <p style="margin-bottom:20px;">Access over 5,000 top-tier courses from leading universities. Build your credentials while securing rewards directly in your wallet.</p>
+        <ul class="pillar-features">
+          <li><span class="check">✓</span> +25 coins per module</li>
+          <li><span class="check">✓</span> +100 bonus on global completion</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Block 2: News -->
+    <div style="display:flex; gap: 48px; align-items:center; flex-wrap:wrap-reverse; margin-bottom: 80px;" class="reveal">
+      <div style="flex:1; min-width:300px;">
+        <div class="ios-icon-box" style="color: var(--lavender);"><i data-lucide="newspaper"></i></div>
+        <h3 style="font-size:28px; margin-bottom:12px;">Rapid News Bites</h3>
+        <p style="margin-bottom:20px;">Swap endless scrolling for profound insight. Our 60-word news summaries keep you hyper-informed efficiently.</p>
+        <ul class="pillar-features">
+          <li><span class="check">✓</span> +5 coins per article</li>
+          <li><span class="check">✓</span> Zero algorithmic bias</li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:300px;">
+        <img src="images/subject_news.png" style="width:100%; border-radius:var(--radius-card); box-shadow:var(--shadow-hover);" alt="News">
+      </div>
+    </div>
+
+    <!-- Block 3: Meditation -->
+    <div style="display:flex; gap: 48px; align-items:center; flex-wrap:wrap; margin-bottom: 80px;" class="reveal">
+      <div style="flex:1; min-width:300px;">
+        <img src="images/subject_meditation.png" style="width:100%; border-radius:var(--radius-card); box-shadow:var(--shadow-hover);" alt="Meditation">
+      </div>
+      <div style="flex:1; min-width:300px;">
+        <div class="ios-icon-box" style="color: var(--emerald);"><i data-lucide="flower-2"></i></div>
+        <h3 style="font-size:28px; margin-bottom:12px;">Deep Mindfulness</h3>
+        <p style="margin-bottom:20px;">Decompress with masterfully guided morning, focus, sleep, and stress sessions. Cultivate peace while continuing to earn.</p>
+        <ul class="pillar-features">
+          <li><span class="check">✓</span> +30 coins per session</li>
+          <li><span class="check">✓</span> YouTube-quality guidance</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Block 4: Rewards -->
+    <div style="display:flex; gap: 48px; align-items:center; flex-wrap:wrap-reverse;" class="reveal">
+      <div style="flex:1; min-width:300px;">
+        <div class="ios-icon-box" style="color: var(--amber);"><i data-lucide="gift"></i></div>
+        <h3 style="font-size:28px; margin-bottom:12px;">Premium Redemptions</h3>
+        <p style="margin-bottom:20px;">Turn your intellectual pursuits into tangible value. Redeem your Focus Reward coins instantly for tools you rely on.</p>
+        <ul class="pillar-features">
+          <li><span class="check">✓</span> ChatGPT Plus, Coursera Plus</li>
+          <li><span class="check">✓</span> Amazon, Flipkart, Starbucks</li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:300px;">
+        <img src="images/subject_rewards.png" style="width:100%; border-radius:var(--radius-card); box-shadow:var(--shadow-hover);" alt="Rewards">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     COIN SYSTEM
+============================ -->
+<section id="coins" class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">The Ecosystem</div>
+      <h2>Earn effortlessly.<br>Spend beautifully.</h2>
+      <p>Our ecosystem is built around a single, powerful premise: your focus holds immense value. Read, learn, and meditate to collect coins, then seamlessly exchange them for premium tools you love. It’s that simple.</p>
+    </div>
+
+    <!-- Visual flow -->
+    <div class="coin-flow reveal">
+      <div class="coin-step">
+        <div class="coin-step-icon" style="background: var(--sky-soft); border-color: rgba(14,165,233,0.25)"><i data-lucide="book-open"></i></div>
+        <h4>Focus Sessions</h4>
+        <p>Courses, news, meditation</p>
+      </div>
+      <div class="coin-arrow"><i data-lucide="arrow-right"></i></div>
+      <div class="coin-step">
+        <div class="coin-step-icon" style="background: var(--amber-soft); border-color: rgba(245,158,11,0.25)"><i data-lucide="coins"></i></div>
+        <h4>Capture Value</h4>
+        <p>Every action yields coins</p>
+      </div>
+      <div class="coin-arrow"><i data-lucide="arrow-right"></i></div>
+      <div class="coin-step">
+        <div class="coin-step-icon" style="background: var(--emerald-soft); border-color: rgba(16,185,129,0.25)"><i data-lucide="layers"></i></div>
+        <h4>Stack Wealth</h4>
+        <p>Build your digital balance</p>
+      </div>
+      <div class="coin-arrow"><i data-lucide="arrow-right"></i></div>
+      <div class="coin-step">
+        <div class="coin-step-icon" style="background: var(--violet-soft); border-color: rgba(124,58,237,0.25)"><i data-lucide="shopping-bag"></i></div>
+        <h4>Redeem Instantly</h4>
+        <p>Zero friction withdrawals</p>
+      </div>
+    </div>
+
+    <!-- Coin earning table -->
+    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <table class="coin-table">
+        <thead><tr><th>Action</th><th>Coins Earned</th></tr></thead>
+        <tbody>
+          <tr><td><i data-lucide="newspaper" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Read a news article</td><td class="coins-val">+5</td></tr>
+          <tr><td><i data-lucide="book-open" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Complete a course module</td><td class="coins-val">+25</td></tr>
+          <tr><td><i data-lucide="graduation-cap" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Complete a full course</td><td class="coins-val">+100</td></tr>
+          <tr><td><i data-lucide="flower-2" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Finish a meditation session</td><td class="coins-val">+30</td></tr>
+          <tr><td><i data-lucide="flame" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> 7-day streak bonus</td><td class="coins-val">+50</td></tr>
+          <tr><td><i data-lucide="users" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Refer a friend</td><td class="coins-val">+200</td></tr>
+        </tbody>
+      </table>
+      <table class="coin-table">
+        <thead><tr><th>Reward</th><th>Coins Required</th></tr></thead>
+        <tbody>
+          <tr><td><i data-lucide="bot" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> ChatGPT Plus (1 month)</td><td class="coins-val">2,000</td></tr>
+          <tr><td><i data-lucide="graduation-cap" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Coursera Plus (1 month)</td><td class="coins-val">4,000</td></tr>
+          <tr><td><i data-lucide="shopping-cart" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Amazon ₹500 Gift Card</td><td class="coins-val">500</td></tr>
+          <tr><td><i data-lucide="shopping-bag" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Flipkart ₹500 Gift Card</td><td class="coins-val">500</td></tr>
+          <tr><td><i data-lucide="coffee" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Starbucks ₹300 Gift Card</td><td class="coins-val">300</td></tr>
+          <tr><td><i data-lucide="music" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Spotify Premium (1 month)</td><td class="coins-val">600</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     REWARDS PREVIEW
+============================ -->
+<section id="rewards" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">Redemption Marketplace</div>
+      <h2>Your Coins.<br>Real Rewards.</h2>
+      <p>Redeem your earned coins for premium subscriptions and gift cards you actually use. No catch, no expiry.</p>
+    </div>
+
+    <div class="rewards-grid" id="rewardsPreview">
+      <!-- populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     HOW IT WORKS
+============================ -->
+<section id="how" class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">Seamless Setup</div>
+      <h2>Four effortless steps.</h2>
+      <p>From your first tap to your first reward, the entirely intuitive process takes just minutes.</p>
+    </div>
+
+    <div class="steps-flow reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Sign Up Free</h3>
+        <p>Create your account in 30 seconds. Get 50 welcome bonus coins instantly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background:linear-gradient(135deg, var(--emerald), #059669)">02</div>
+        <h3>Pick Your Path</h3>
+        <p>Enroll in courses, browse daily news, or start a meditation session — your choice.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background:linear-gradient(135deg, var(--amber), #D97706)">03</div>
+        <h3>Earn Daily</h3>
+        <p>Every article read, module completed, and session finished adds coins to your balance.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" style="background:linear-gradient(135deg, var(--rose), #E11D48)">04</div>
+        <h3>Redeem Rewards</h3>
+        <p>Hit a threshold? Redeem for ChatGPT Plus, Coursera, Amazon, Spotify — you choose.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     WHO IT'S FOR
+============================ -->
+<section id="users" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">For Everyone</div>
+      <h2>Designed for human beings.<br>Not algorithms.</h2>
+      <p>Whether you're studying, working, or simply seeking better digital habits, Focus Reward seamlessly integrates into your unique life.</p>
+    </div>
+
+    <div class="users-grid">
+      <div class="user-card reveal reveal-d1">
+        <div class="user-avatar-icon" style="background: var(--sky-soft); color: var(--sky);"><i data-lucide="graduation-cap"></i></div>
+        <h3>College Students</h3>
+        <p>Earn while studying. Use coins to pay for ChatGPT or course certificates.</p>
+      </div>
+      <div class="user-card reveal reveal-d2">
+        <div class="user-avatar-icon" style="background: var(--emerald-soft); color: var(--emerald);"><i data-lucide="briefcase"></i></div>
+        <h3>Working Professionals</h3>
+        <p>Upskill during commute. Stay informed with 60-second news, earn rewards.</p>
+      </div>
+      <div class="user-card reveal reveal-d3">
+        <div class="user-avatar-icon" style="background: var(--violet-soft); color: var(--violet);"><i data-lucide="book-open"></i></div>
+        <h3>Curious Learners</h3>
+        <p>Love learning for fun? Now every snippet puts money back in your pocket.</p>
+      </div>
+      <div class="user-card reveal reveal-d4">
+        <div class="user-avatar-icon" style="background: var(--amber-soft); color: var(--amber);"><i data-lucide="flower-2"></i></div>
+        <h3>Wellness Seekers</h3>
+        <p>4 guided meditations per month. Your mental health practice, officially rewarded.</p>
+      </div>
+      <div class="user-card reveal reveal-d5">
+        <div class="user-avatar-icon" style="background: var(--rose-soft); color: var(--rose);"><i data-lucide="credit-card"></i></div>
+        <h3>Subscription-Broke</h3>
+        <p>Stop paying ₹2000+/month for tools. Earn your stack back by learning.</p>
+      </div>
+      <div class="user-card reveal reveal-d6">
+        <div class="user-avatar-icon" style="background: var(--lavender-soft); color: var(--lavender);"><i data-lucide="smartphone"></i></div>
+        <h3>Recovering Scrollers</h3>
+        <p>Replace 4.5 hrs of reels with 30 min of real news. Radically better outcomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CTA
+============================ -->
+<section id="cta">
+  <div class="cta-orb cta-orb-1"></div>
+  <div class="cta-orb cta-orb-2"></div>
+  <div class="cta-inner reveal">
+    <div class="tag" style="margin: 0 auto 20px">Experience it today</div>
+    <h2>Transform your time.<br>Beautifully.</h2>
+    <p>Create your free account today and experience the most rewarding way to learn, read, and focus.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="#" id="ctaStartBtn" style="font-size:1.05rem; padding:16px 40px">Create Free Account</a>
+      <a class="btn btn-secondary" href="#solution" style="font-size:1.05rem; padding:16px 40px">Learn More</a>
+    </div>
+    <p style="margin-top:16px; font-size:0.82rem; color:var(--text-dim)">No credit card · 50 bonus coins · Start earning in 2 minutes</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================
+     FOOTER
+============================ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="logo" style="margin-bottom:6px">
+          <img src="images/logo.png" alt="Focus Reward" style="width:32px; height:32px; border-radius:10px;">
+          <span class="logo-text">Focus Reward</span>
+        </div>
+        <p style="font-size:0.82rem; color:var(--text-dim)">Learn. Focus. Earn.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#coins">Coins</a>
+        <a href="#rewards">Rewards</a>
+        <a href="#how">How It Works</a>
+      </div>
+      <div class="footer-copy">
+        Built with purpose. Designed for growth. © 2026 Focus Reward
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================
+     AUTH MODAL
+============================ -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+
+    <!-- Register Form -->
+    <div id="registerView">
+      <h2>Create Account</h2>
+      <p class="modal-sub">Get 50 welcome bonus coins instantly 🪙</p>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="regName">Full Name</label>
+          <input type="text" id="regName" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email</label>
+          <input type="email" id="regEmail" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" placeholder="Min 6 characters" minlength="6" required>
+        </div>
+        <div class="form-error" id="regError"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">Sign Up & Start Earning</button>
+      </form>
+      <p class="form-toggle">Already have an account? <a id="showLogin">Log in</a></p>
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginView" style="display:none">
+      <h2>Welcome Back</h2>
+      <p class="modal-sub">Log in to continue earning coins</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Your password" required>
+        </div>
+        <div class="form-error" id="loginError"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">Log In</button>
+      </form>
+      <p class="form-toggle">Don't have an account? <a id="showRegister">Sign up</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  lucide.createIcons();
+</script>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

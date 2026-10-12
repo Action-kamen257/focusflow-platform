@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Focus Reward</title>
+  <meta name="description" content="Your Focus Reward dashboard — track coins, read news, complete courses, and practice meditation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <img src="images/logo.png" alt="Focus Reward" style="width:32px; height:32px; border-radius:10px;">
+      <span class="logo-text">Focus Reward</span>
+    </a>
+  </div>
+  <div class="topbar-right">
+    <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme"><i data-lucide="moon" style="width:16px;height:16px;"></i></button>
+    <div class="topbar-streak" id="streakBadge"><i data-lucide="flame" style="width:16px;height:16px;margin-right:6px;vertical-align:text-bottom;"></i> <span id="streakCount">0</span> day streak</div>
+    <div class="topbar-coins"><i data-lucide="coins" style="width:16px;height:16px;margin-right:6px;vertical-align:text-bottom;"></i> <span id="coinBalance">0</span></div>
+    <div class="topbar-user">
+      <div class="topbar-avatar" id="userAvatar"><i data-lucide="user" style="width:20px;height:20px;"></i></div>
+      <span id="userName">User</span>
+    </div>
+    <button class="topbar-logout" id="logoutBtn">Log Out</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="dash-container">
+  <div class="dash-header">
+    <h1 id="greeting">Good morning. Let's focus.</h1>
+    <p>Your raw statistics. Read, build, and capture real value today.</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="dash-tabs">
+    <button class="dash-tab active" data-tab="overview"><span class="tab-icon"><i data-lucide="bar-chart-2" style="width:18px;height:18px;"></i></span> Overview</button>
+    <button class="dash-tab" data-tab="news"><span class="tab-icon"><i data-lucide="newspaper" style="width:18px;height:18px;"></i></span> News Feed</button>
+    <button class="dash-tab" data-tab="courses"><span class="tab-icon"><i data-lucide="graduation-cap" style="width:18px;height:18px;"></i></span> Courses</button>
+    <button class="dash-tab" data-tab="meditation"><span class="tab-icon"><i data-lucide="flower-2" style="width:18px;height:18px;"></i></span> Meditation</button>
+    <button class="dash-tab" data-tab="redeem"><span class="tab-icon"><i data-lucide="gift" style="width:18px;height:18px;"></i></span> Redeem</button>
+  </div>
+
+  <!-- OVERVIEW TAB -->
+  <div class="tab-content active" id="tab-overview">
+    <div class="overview-stats">
+      <div class="stat-card" style="--stat-glow: var(--amber-glow)">
+        <div class="stat-icon"><i data-lucide="coins"></i></div>
+        <div class="stat-num" id="statCoins">0</div>
+        <div class="stat-label">Total Coins</div>
+      </div>
+      <div class="stat-card" style="--stat-glow: var(--sky-glow, rgba(14,165,233,0.3))">
+        <div class="stat-icon"><i data-lucide="newspaper"></i></div>
+        <div class="stat-num" id="statNews">0</div>
+        <div class="stat-label">Articles Read</div>
+      </div>
+      <div class="stat-card" style="--stat-glow: var(--emerald-glow)">
+        <div class="stat-icon"><i data-lucide="book-open"></i></div>
+        <div class="stat-num" id="statModules">0</div>
+        <div class="stat-label">Modules Completed</div>
+      </div>
+      <div class="stat-card" style="--stat-glow: rgba(167,139,250,0.3)">
+        <div class="stat-icon"><i data-lucide="flower-2"></i></div>
+        <div class="stat-num" id="statMed">0</div>
+        <div class="stat-label">Meditations Done</div>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h3>Recent Activity</h3>
+      <div class="activity-list" id="activityList">
+        <p style="padding:20px; color:var(--text-dim);">Loading activity...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS TAB -->
+  <div class="tab-content" id="tab-news">
+    <div style="margin-bottom:20px;">
+      <h2 style="font-size:1.3rem; margin-bottom:4px;">Today's Current Affairs</h2>
+      <p style="font-size:0.9rem;">60-word news bites · InShort style · Earn +5 coins per article</p>
+    </div>
+    <div class="news-grid" id="newsGrid">
+      <p style="padding:20px; color:var(--text-dim);">Loading news...</p>
+    </div>
+  </div>
+
+  <!-- COURSES TAB -->
+  <div class="tab-content" id="tab-courses">
+    <div class="courses-section">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <div>
+          <h2 style="font-size:1.3rem; margin-bottom:4px;">Your Courses</h2>
+          <p style="font-size:0.9rem;">Enrolled courses with progress tracking</p>
+        </div>
+      </div>
+      <div class="course-grid" id="enrolledCourses">
+        <p style="padding:20px; color:var(--text-dim);">Loading enrolled courses...</p>
+      </div>
+    </div>
+
+    <div class="courses-section">
+      <div style="margin-bottom:20px;">
+        <h2 style="font-size:1.3rem; margin-bottom:4px;">Browse Courses</h2>
+        <p style="font-size:0.9rem;">Explore & enroll — earn +25 coins per module</p>
+      </div>
+      <div class="course-grid" id="allCourses">
+        <p style="padding:20px; color:var(--text-dim);">Loading courses...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEDITATION TAB -->
+  <div class="tab-content" id="tab-meditation">
+    <div style="margin-bottom:20px;">
+      <h2 style="font-size:1.3rem; margin-bottom:4px;">Guided Meditation</h2>
+      <p style="font-size:0.9rem;">4 sessions this month · Earn +30 coins per session</p>
+    </div>
+    <div class="meditation-grid" id="meditationGrid">
+      <p style="padding:20px; color:var(--text-dim);">Loading sessions...</p>
+    </div>
+  </div>
+
+  <!-- REDEEM TAB -->
+  <div class="tab-content" id="tab-redeem">
+    <div style="margin-bottom:20px;">
+      <h2 style="font-size:1.3rem; margin-bottom:4px;">Redemption Marketplace</h2>
+      <p style="font-size:0.9rem;">Spend your coins on real subscriptions and gift cards</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;" id="redeemGrid">
+      <p style="padding:20px; color:var(--text-dim);">Loading rewards...</p>
+    </div>
+
+    <div class="activity-section" style="margin-top:40px;">
+      <h3>Redemption History</h3>
+      <div class="activity-list" id="redeemHistory">
+        <p style="padding:20px; color:var(--text-dim);">No redemptions yet. Start earning!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COIN TOAST -->
+<div class="coin-toast" id="coinToast">
+  <span class="toast-icon"><i data-lucide="sparkles"></i></span>
+  <span class="toast-text" id="toastText">+5 coins earned!</span>
+</div>
+
+<script>
+  lucide.createIcons();
+</script>
+
+<script src="js/config.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

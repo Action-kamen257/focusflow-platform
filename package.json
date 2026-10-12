@@ -1,0 +1,27 @@
+{
+  "name": "focusflow-platform",
+  "version": "1.0.0",
+  "description": "FocusFlow — learn, earn, redeem platform",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "npx nodemon server/server.js",
+    "seed": "node server/db/seed.js",
+    "sync": "node sync-functions.js",
+    "deploy": "node sync-functions.js && firebase deploy",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "deploy:functions": "node sync-functions.js && firebase deploy --only functions"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "sql.js": "^1.10.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

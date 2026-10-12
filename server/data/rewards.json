@@ -1,0 +1,90 @@
+[
+  {
+    "id": "r1",
+    "title": "ChatGPT Plus",
+    "subtitle": "1 Month Subscription",
+    "description": "Get OpenAI's ChatGPT Plus with GPT-4o, advanced analysis, plugins, and priority access.",
+    "coinsRequired": 2000,
+    "category": "Subscription",
+    "icon": "🤖",
+    "color": "#10B981",
+    "value": "₹1,999"
+  },
+  {
+    "id": "r2",
+    "title": "Coursera Plus",
+    "subtitle": "1 Month Full Access",
+    "description": "Unlimited access to 7,000+ courses, guided projects, specializations, and professional certificates.",
+    "coinsRequired": 4000,
+    "category": "Subscription",
+    "icon": "🎓",
+    "color": "#3B82F6",
+    "value": "₹4,000"
+  },
+  {
+    "id": "r3",
+    "title": "Amazon Gift Card",
+    "subtitle": "₹500 Value",
+    "description": "Redeemable across all Amazon.in products. Digital delivery within 24 hours.",
+    "coinsRequired": 500,
+    "category": "Gift Card",
+    "icon": "🛒",
+    "color": "#F59E0B",
+    "value": "₹500"
+  },
+  {
+    "id": "r4",
+    "title": "Flipkart Gift Card",
+    "subtitle": "₹500 Value",
+    "description": "Shop anything on Flipkart — electronics, fashion, books, and more.",
+    "coinsRequired": 500,
+    "category": "Gift Card",
+    "icon": "🛍️",
+    "color": "#2563EB",
+    "value": "₹500"
+  },
+  {
+    "id": "r5",
+    "title": "Starbucks Gift Card",
+    "subtitle": "₹300 Value",
+    "description": "Treat yourself to premium coffee and snacks at any Starbucks India outlet.",
+    "coinsRequired": 300,
+    "category": "Gift Card",
+    "icon": "☕",
+    "color": "#047857",
+    "value": "₹300"
+  },
+  {
+    "id": "r6",
+    "title": "Notion Pro",
+    "subtitle": "1 Month Personal Pro",
+    "description": "Unlock unlimited file uploads, 30-day page history, and advanced collaboration in Notion.",
+    "coinsRequired": 800,
+    "category": "Subscription",
+    "icon": "📝",
+    "color": "#1F2937",
+    "value": "₹800"
+  },
+  {
+    "id": "r7",
+    "title": "Spotify Premium",
+    "subtitle": "1 Month Individual",
+    "description": "Ad-free music streaming, offline downloads, and high-quality audio across all your devices.",
+    "coinsRequired": 600,
+    "category": "Subscription",
+    "icon": "🎵",
+    "color": "#1DB954",
+    "value": "₹600"
+  },
+  {
+    "id": "r8",
+    "title": "Swiggy Gift Card",
+    "subtitle": "₹300 Value",
+    "description": "Order food, groceries, or anything from Swiggy. Valid across all Swiggy services.",
+    "coinsRequired": 300,
+    "category": "Gift Card",
+    "icon": "🍕",
+    "color": "#FC8019",
+    "value": "₹300"
+  }
+]
