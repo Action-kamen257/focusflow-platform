@@ -1,19 +1,4 @@
 {
-  "functions": [
-    {
-      "source": "functions",
-      "codebase": "default",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log"
-      ],
-      "predeploy": [
-        "node sync-functions.js"
-      ]
-    }
-  ],
   "hosting": {
     "public": ".",
     "ignore": [
@@ -27,13 +12,15 @@
       "package-lock.json"
     ],
     "cleanUrls": true,
-    "rewrites": [
+    "headers": [
       {
-        "source": "/api/**",
-        "function": {
-          "functionId": "api",
-          "region": "us-central1"
-        }
+        "source": "**/*.@(js|html|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
       }
     ]
   }

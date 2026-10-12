@@ -81,6 +81,57 @@ document.getElementById('navLoginBtn').addEventListener('click', (e) => { e.prev
 document.getElementById('heroStartBtn').addEventListener('click', (e) => { e.preventDefault(); openModal(); });
 document.getElementById('ctaStartBtn').addEventListener('click', (e) => { e.preventDefault(); openModal(); });
 
+// ---- Helper: Client-Side Fallback Storage ----
+function getLocalUsers() {
+  try { return JSON.parse(localStorage.getItem('focusflow_users_db')) || []; } catch(e) { return []; }
+}
+function saveLocalUsers(u) {
+  try { localStorage.setItem('focusflow_users_db', JSON.stringify(u)); } catch(e) {}
+}
+function setLocalSession(userId) {
+  try { localStorage.setItem('focusflow_active_session', userId); } catch(e) {}
+}
+
+function registerClientUser(name, email, password) {
+  const users = getLocalUsers();
+  const existing = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+  if (existing) {
+    throw new Error('Email already registered.');
+  }
+  const newUser = {
+    id: 'usr_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+    name,
+    email: email.toLowerCase(),
+    password,
+    coins: 50,
+    streak: 1,
+    lastActive: new Date().toISOString().split('T')[0],
+    enrolledCourses: [],
+    completedModules: [],
+    readNews: [],
+    completedMeditations: [],
+    coinHistory: [
+      { action: 'welcome_bonus', coins: 50, detail: 'Welcome to FocusFlow! 🎉', date: new Date().toISOString() }
+    ],
+    redemptions: [],
+    createdAt: new Date().toISOString()
+  };
+  users.push(newUser);
+  saveLocalUsers(users);
+  setLocalSession(newUser.id);
+  return newUser;
+}
+
+function loginClientUser(email, password) {
+  const users = getLocalUsers();
+  const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+  if (!user || user.password !== password) {
+    throw new Error('Invalid email or password.');
+  }
+  setLocalSession(user.id);
+  return user;
+}
+
 // ---- Register ----
 document.getElementById('registerForm').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -92,22 +143,29 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
   const password = document.getElementById('regPassword').value;
 
   try {
-    const res = await fetch(`${API}/api/auth/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ name, email, password })
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      errEl.textContent = data.error || 'Registration failed.';
-      errEl.style.display = 'block';
-      return;
+    let succeeded = false;
+    try {
+      const res = await fetch(`${API}/api/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ name, email, password })
+      });
+      if (res && res.ok) {
+        succeeded = true;
+      }
+    } catch (netErr) {
+      // Remote server not reachable
     }
+
+    if (!succeeded) {
+      registerClientUser(name, email, password);
+    }
+
     // Registration succeeded — redirect to dashboard
     window.location.href = '/dashboard.html';
   } catch (err) {
-    errEl.textContent = 'Network error. Make sure the server is running.';
+    errEl.textContent = err.message || 'Registration failed.';
     errEl.style.display = 'block';
   }
 });
@@ -122,21 +180,28 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   const password = document.getElementById('loginPassword').value;
 
   try {
-    const res = await fetch(`${API}/api/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ email, password })
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      errEl.textContent = data.error || 'Login failed.';
-      errEl.style.display = 'block';
-      return;
+    let succeeded = false;
+    try {
+      const res = await fetch(`${API}/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ email, password })
+      });
+      if (res && res.ok) {
+        succeeded = true;
+      }
+    } catch (netErr) {
+      // Remote server not reachable
     }
+
+    if (!succeeded) {
+      loginClientUser(email, password);
+    }
+
     window.location.href = '/dashboard.html';
   } catch (err) {
-    errEl.textContent = 'Network error. Make sure the server is running.';
+    errEl.textContent = err.message || 'Invalid email or password.';
     errEl.style.display = 'block';
   }
 });
@@ -180,15 +245,28 @@ async function loadRewardsPreview() {
 // ---- Check if already logged in ----
 async function checkAuth() {
   try {
-    const res = await fetch(`${API}/api/auth/me`, { credentials: 'include' });
-    if (res.ok) {
-      // User is logged in — update nav CTA
+    let loggedIn = false;
+    try {
+      const res = await fetch(`${API}/api/auth/me`, { credentials: 'include' });
+      if (res && res.ok) loggedIn = true;
+    } catch(e) {}
+
+    if (!loggedIn) {
+      const activeId = localStorage.getItem('focusflow_active_session');
+      if (activeId && getLocalUsers().some(u => u.id === activeId)) {
+        loggedIn = true;
+      }
+    }
+
+    if (loggedIn) {
       const navCta = document.getElementById('navLoginBtn');
-      navCta.textContent = 'Dashboard';
-      navCta.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.location.href = '/dashboard.html';
-      }, { once: true });
+      if (navCta) {
+        navCta.textContent = 'Dashboard';
+        navCta.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = '/dashboard.html';
+        }, { once: true });
+      }
     }
   } catch (e) { /* not logged in, that's fine */ }
 }

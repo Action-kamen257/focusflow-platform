@@ -22,13 +22,44 @@ function initTheme() {
 }
 initTheme();
 
+function saveClientUser() {
+  if (!currentUser) return;
+  try {
+    const users = JSON.parse(localStorage.getItem('focusflow_users_db') || '[]');
+    const idx = users.findIndex(u => u.id === currentUser.id);
+    if (idx !== -1) {
+      users[idx] = currentUser;
+      localStorage.setItem('focusflow_users_db', JSON.stringify(users));
+    }
+  } catch(e) {}
+}
+
 // ---- Auth Check ----
 async function checkAuth() {
   try {
-    const res = await fetch(`${API}/api/auth/me`, { credentials: 'include' });
-    if (!res.ok) throw new Error('Not authenticated');
-    const data = await res.json();
-    currentUser = data.user;
+    let authUser = null;
+    try {
+      const res = await fetch(`${API}/api/auth/me`, { credentials: 'include' });
+      if (res && res.ok) {
+        const data = await res.json();
+        authUser = data.user;
+      }
+    } catch(e) {}
+
+    if (!authUser) {
+      const activeId = localStorage.getItem('focusflow_active_session');
+      if (activeId) {
+        const users = JSON.parse(localStorage.getItem('focusflow_users_db') || '[]');
+        authUser = users.find(u => u.id === activeId);
+      }
+    }
+
+    if (!authUser) {
+      window.location.href = '/';
+      return;
+    }
+
+    currentUser = authUser;
     renderUserInfo();
     loadAllTabs();
   } catch (e) {
@@ -72,13 +103,15 @@ function showToast(message) {
 // ---- Update Coin Display ----
 function updateCoins(newTotal) {
   currentUser.coins = newTotal;
+  saveClientUser();
   document.getElementById('coinBalance').textContent = newTotal.toLocaleString();
   document.getElementById('statCoins').textContent = newTotal.toLocaleString();
 }
 
 // ---- Logout ----
 document.getElementById('logoutBtn').addEventListener('click', async () => {
-  await fetch(`${API}/api/auth/logout`, { method: 'POST', credentials: 'include' });
+  try { await fetch(`${API}/api/auth/logout`, { method: 'POST', credentials: 'include' }); } catch(e) {}
+  localStorage.removeItem('focusflow_active_session');
   window.location.href = '/';
 });
 
